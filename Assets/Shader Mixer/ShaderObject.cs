@@ -14,9 +14,14 @@ public class ShaderObject : MonoBehaviour
     private void Awake()
     {
         _Mat = GetComponent<Renderer>().material;
-        _ScaleSlider.value = transform.localScale.x;
+        _Scale = transform.localScale.x;
+        UpdateSlider();
     }
 
+    void UpdateSlider()
+    {
+        _ScaleSlider.value = _Scale;
+    }
 
     public void UpdateFloat(string name, float val)
     {
@@ -27,5 +32,17 @@ public class ShaderObject : MonoBehaviour
     public void SetScale(float scale)
     {
         transform.localScale = Vector3.one * scale;
+    }
+
+    public void Load(int i)
+    {
+        _Scale = PlayerPrefs.GetFloat(name + "_Scale" + i);
+        transform.localScale = Vector3.one * _Scale;
+        UpdateSlider();
+    }
+
+    public void Save(int i)
+    {
+        PlayerPrefs.SetFloat(name+"_Scale" + i, _Scale);
     }
 }

@@ -8,7 +8,6 @@ public class ShaderObject : MonoBehaviour
     public Material _Mat;
     public float _Scale;
     public Color _BaseCol;
-
     public Slider _ScaleSlider;
 
     private void Awake()
@@ -29,20 +28,45 @@ public class ShaderObject : MonoBehaviour
         _Mat.SetFloat(name, val);
     }
 
-    public void SetScale(float scale)
+    public void UpdateColor(string name, Color col)
     {
-        transform.localScale = Vector3.one * scale;
+        print(name + "    Setting col: " + name + "   " + col);
+        _Mat.SetColor(name, col);
     }
 
-    public void Load(int i)
+    public void UpdateVector4(string name, Vector4 vec)
     {
-        _Scale = PlayerPrefs.GetFloat(name + "_Scale" + i);
+        //print(name + "    Setting vec4: " + name + "   " + vec);
+        _Mat.SetColor(name, vec);        
+    }
+
+    public void SetScale(float scale)
+    {
+        _Scale = scale;
+        transform.localScale = Vector3.one * _Scale;
+    }
+
+    public void Load(int index)
+    {
+        int active = PlayerPrefs.GetInt(name + "_Active" + index, 1);
+
+        if (active == 1)
+            gameObject.SetActive(true);
+        else
+            gameObject.SetActive(false);
+
+        _Scale = PlayerPrefs.GetFloat(name + "_Scale" + index, 3);
         transform.localScale = Vector3.one * _Scale;
         UpdateSlider();
     }
 
-    public void Save(int i)
+    public void Save(int index)
     {
-        PlayerPrefs.SetFloat(name+"_Scale" + i, _Scale);
+        PlayerPrefs.SetFloat(name + "_Scale" + index, _Scale);
+
+        if(gameObject.activeSelf)
+            PlayerPrefs.SetInt(name + "_Active" + index, 1);
+        else
+            PlayerPrefs.SetInt(name + "_Active" + index, 0);
     }
 }

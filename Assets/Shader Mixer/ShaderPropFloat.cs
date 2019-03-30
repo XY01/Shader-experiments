@@ -18,25 +18,19 @@ public class ShaderPropFloat : MonoBehaviour
     {
         _Value = _Object._Mat.GetFloat(_Name);
 
-        Slider s  = GetComponentInChildren<Slider>();
-        if(s !=null)
-        {
-            print("Setting value " + _Value);
-            s.value = _Value;
+        UpdateSlider();
 
-            s.name = "Slider " + _Name;
-        }
-
-        _SerializedName = _Object.name + _Name + _Value;
+         _SerializedName = _Object.name + _Name;
     }
 
-    void UpdateSlder()
+    void UpdateSlider()
     {
         Slider s = GetComponentInChildren<Slider>();
         if (s != null)
         {
             print("Setting value " + _Value);
             s.value = _Value;
+            s.name = "Slider " + _Name;
         }
     }
 
@@ -56,7 +50,7 @@ public class ShaderPropFloat : MonoBehaviour
 
 
         UpdateValue(_Value);
-        UpdateSlder();
+        UpdateSlider();
     }
 
     public void Save(int index)

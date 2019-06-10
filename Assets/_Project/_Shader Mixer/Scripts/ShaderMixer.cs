@@ -2,6 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+// TODO Add json serialization
+// TODO Add in shader reflection to auto populate parameters
+// TODO Add support to auto populate osc controller layouts
+// TODO Add 360 capture for equirectangular output
+
+
 public class ShaderMixer : MonoBehaviour
 {
     ShaderObject[] _ShaderObjects;

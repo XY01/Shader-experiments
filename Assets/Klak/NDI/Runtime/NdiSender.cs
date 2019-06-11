@@ -15,10 +15,17 @@ using UnityEditor; // Needed to use delayCall
 
 namespace Klak.Ndi
 {
-    [ExecuteInEditMode]
     [AddComponentMenu("Klak/NDI/NDI Sender")]
     public sealed class NdiSender : MonoBehaviour
     {
+        public enum Source
+        {
+            Camera,
+            RenderTexture,
+        }
+
+        public Source _Source = Source.Camera;
+
         #region Source texture
 
         [SerializeField] RenderTexture _sourceTexture;
@@ -66,7 +73,7 @@ namespace Klak.Ndi
 
             if (_frameQueue.Count > 3)
             {
-                Debug.LogWarning("Too many GPU readback requests.");
+                Debug.LogWarning(name +   "   Too many GPU readback requests.");
                 return;
             }
 
@@ -164,7 +171,8 @@ namespace Klak.Ndi
             _delayUpdateAdded = false;
 
             // Queue the last update in the render texture mode.
-            if (!_hasCamera && _sourceTexture != null) QueueFrame(_sourceTexture);
+            if (_Source == Source.RenderTexture)
+                QueueFrame(_sourceTexture);
 
             // Process the readback queue to send the last update.
             ProcessQueue();
@@ -244,7 +252,7 @@ namespace Klak.Ndi
             if (!Application.isPlaying) _hasCamera = (GetComponent<Camera>() != null);
 
             // Check if in the render texture mode.
-            if (!_hasCamera && _sourceTexture != null)
+            if (_Source == Source.RenderTexture)
             {
                 // Process the readback queue before enqueuing.
                 ProcessQueue();
@@ -253,7 +261,7 @@ namespace Klak.Ndi
                 QueueFrame(_sourceTexture);
             }
         }
-
+        
         void OnRenderImage(RenderTexture source, RenderTexture destination)
         {
             if (source != null)

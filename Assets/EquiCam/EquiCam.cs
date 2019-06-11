@@ -1,19 +1,22 @@
 ﻿using UnityEngine;
 using Klak.Ndi;
 
+/// <summary>
+///  Modified Equi cam to push out to NDI
+/// </summary>
 namespace BodhiDonselaar
 {
 	[RequireComponent(typeof(Camera))]
 	public class EquiCam : MonoBehaviour
 	{
-		private static Material equi;
+		private static Material _EquiMat;
 		public Size RenderResolution = Size.Default;
-		private RenderTexture cubemap;
-		private Camera cam;
-		private GameObject child;
+		private RenderTexture _CubemapRT;
+		private Camera _Cam;
+		private GameObject _ChildGO;
 
         public NdiSender _NDISender;
-
+        
 		public enum Size
 		{
 			High = 2048,
@@ -23,52 +26,61 @@ namespace BodhiDonselaar
 		}
 		void OnEnable()
 		{
-			if (equi == null) equi = new Material(Resources.Load<Shader>("EquiCam"));
-			child = new GameObject();
-			child.hideFlags = HideFlags.HideInHierarchy;
-			child.transform.SetParent(transform);
-			child.transform.localPosition = Vector3.zero;
-			child.transform.localEulerAngles = Vector3.zero;
-			cam = child.AddComponent<Camera>();
-			cam.CopyFrom(GetComponent<Camera>());
-			child.SetActive(false);
+			if (_EquiMat == null) _EquiMat = new Material(Resources.Load<Shader>("EquiCam"));
+			_ChildGO = new GameObject();
+			_ChildGO.hideFlags = HideFlags.HideInHierarchy;
+			_ChildGO.transform.SetParent(transform);
+			_ChildGO.transform.localPosition = Vector3.zero;
+			_ChildGO.transform.localEulerAngles = Vector3.zero;
+			_Cam = _ChildGO.AddComponent<Camera>();
+			_Cam.CopyFrom(GetComponent<Camera>());
+			_ChildGO.SetActive(false);
 			New();
-		}
-		void OnDisable()
-		{
-			if (child != null) DestroyImmediate(child);
-			if (cubemap != null)
-			{
-				cubemap.Release();
-				DestroyImmediate(cubemap);
-			}
-		}
-		void OnRenderImage(RenderTexture src, RenderTexture des)
-		{
-			if (cubemap.width != (int)RenderResolution) New();
-			cam.RenderToCubemap(cubemap);
-			Shader.SetGlobalFloat("FORWARD", cam.transform.eulerAngles.y * 0.01745f);
-			Graphics.Blit(cubemap, des, equi);
-
-            //_NDISender.sourceTexture = cubemap;
+            
+            if (_NDISender != null)
+            {
+                _NDISender._Source = NdiSender.Source.RenderTexture;
+                _NDISender.sourceTexture = _CubemapRT;
+            }
 
         }
+		void OnDisable()
+		{
+			if (_ChildGO != null) DestroyImmediate(_ChildGO);
+			if (_CubemapRT != null)
+			{
+				_CubemapRT.Release();
+				DestroyImmediate(_CubemapRT);
+			}
+		}
+
+		void OnRenderImage(RenderTexture src, RenderTexture des)
+		{
+			if (_CubemapRT.width != (int)RenderResolution) New();
+			_Cam.RenderToCubemap(_CubemapRT);
+			Shader.SetGlobalFloat("FORWARD", _Cam.transform.eulerAngles.y * 0.01745f);
+			Graphics.Blit(_CubemapRT, des, _EquiMat);
+
+            // Set the NDI source texture to the cubemap each time it renders
+            _NDISender.sourceTexture = _CubemapRT;
+        }
+
 		private void New()
 		{
-			cam.targetTexture = null;
-			if (cubemap != null)
+			_Cam.targetTexture = null;
+			if (_CubemapRT != null)
 			{
-				cubemap.Release();
-				DestroyImmediate(cubemap);
+				_CubemapRT.Release();
+				DestroyImmediate(_CubemapRT);
 			}
-			cubemap = new RenderTexture((int)RenderResolution, (int)RenderResolution, 0, RenderTextureFormat.ARGB32);
-			cubemap.antiAliasing = 1;
-			cubemap.filterMode = FilterMode.Bilinear;
-			cubemap.anisoLevel = 0;
-			cubemap.dimension = UnityEngine.Rendering.TextureDimension.Cube;
-			cubemap.autoGenerateMips = false;
-			cubemap.useMipMap = false;
-			cam.targetTexture = cubemap;
+			_CubemapRT = new RenderTexture((int)RenderResolution, (int)RenderResolution, 0, RenderTextureFormat.ARGB32);
+			_CubemapRT.antiAliasing = 1;
+			_CubemapRT.filterMode = FilterMode.Bilinear;
+			_CubemapRT.anisoLevel = 0;
+			_CubemapRT.dimension = UnityEngine.Rendering.TextureDimension.Cube;
+			_CubemapRT.autoGenerateMips = false;
+			_CubemapRT.useMipMap = false;
+			_Cam.targetTexture = _CubemapRT;
 		}
 	}
 }

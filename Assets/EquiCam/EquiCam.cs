@@ -16,6 +16,7 @@ namespace BodhiDonselaar
 		private GameObject _ChildGO;
 
         public NdiSender _NDISender;
+        public Material _ProjectionMat;
         
 		public enum Size
 		{

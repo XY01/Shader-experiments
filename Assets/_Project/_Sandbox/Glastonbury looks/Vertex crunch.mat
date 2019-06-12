@@ -25,8 +25,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _EMissivescaler: 1242
+    - _FreqPI: 1
     - _Frequency: 0.2
+    - _NormalLerp: 0.5
     - _Offset: 0.35
+    - _Speed: 0.1
     - _Tiling: 0.01
     - __dirty: 0
     m_Colors:

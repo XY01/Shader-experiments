@@ -14,6 +14,8 @@ public class EquirectangularRender : MonoBehaviour
     public RenderTexture _EquiRectRT;
     Camera _Cam;
 
+    public Material _Mat;
+
     //Hax
     public Klak.Ndi.NdiSender _NDISender;
     public float _Test;
@@ -29,6 +31,8 @@ public class EquirectangularRender : MonoBehaviour
 
         if(_NDISender != null)
             _NDISender.sourceTexture = _EquiRectRT;
+
+        _Mat.mainTexture = _EquiRectRT;
     }
 
     void LateUpdate()
@@ -36,8 +40,8 @@ public class EquirectangularRender : MonoBehaviour
         _Cam.RenderToCubemap(_CubemapRT, 63, Camera.MonoOrStereoscopicEye.Mono);
         _CubemapRT.ConvertToEquirect(_EquiRectRT, Camera.MonoOrStereoscopicEye.Mono);
 
-        if (_NDISender != null)
-            _NDISender.sourceTexture = _EquiRectRT;
+        //if (_NDISender != null)
+          //  _NDISender.sourceTexture = _EquiRectRT;
     }
 }
 

@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b2425a2284af743826c689403a4924, type: 3}
+  m_Name: DissolveEdge
+  m_EditorClassIdentifier: 
+  m_functionInfo: "// Made with Amplify Shader Editor\n// Available at the Unity Asset
+    Store - http://u3d.as/y3X \n/*ASEBEGIN\nVersion=16600\n128;267;1679;1004;1912.586;356.6714;1.617685;True;True\nNode;AmplifyShaderEditor.FunctionInput;12;-1429.769,-93.29144;Float;False;Input;1;1;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;21;-1364.066,361.6028;Float;False;Edge
+    Size;1;0;False;1;0;FLOAT;0.1;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionNode;24;-772.9637,-76.59736;Float;True;SmoothStepWithRange;-1;;8;6b8feb94a59546a4a922962808f7d14f;0;3;12;FLOAT;0;False;13;FLOAT;0;False;14;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleSubtractOpNode;23;13.16097,-25.08353;Float;True;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.StepOpNode;27;-440.3431,170.4187;Float;True;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.OneMinusNode;28;-211.0995,180.5604;Float;True;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleAddOpNode;22;-857.3993,274.072;Float;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleSubtractOpNode;29;-844.5947,392.2445;Float;False;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;13;-1427.768,114.0085;Float;False;SmoothStepRange;1;2;False;1;0;FLOAT;0.3;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;14;-1419.45,203.4085;Float;False;SmoothStepOffset;1;3;False;1;0;FLOAT;0.12;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionOutput;0;329.7386,-16.82275;Float;True;True;Output;0;True;1;0;FLOAT;0;False;1;FLOAT;0\nWireConnection;24;12;12;0\nWireConnection;24;13;13;0\nWireConnection;24;14;14;0\nWireConnection;23;0;24;0\nWireConnection;23;1;28;0\nWireConnection;27;0;24;0\nWireConnection;27;1;29;0\nWireConnection;28;0;27;0\nWireConnection;22;0;14;0\nWireConnection;22;1;21;0\nWireConnection;29;0;14;0\nWireConnection;29;1;21;0\nWireConnection;0;0;23;0\nASEEND*/\n//CHKSM=45CE867945537A4C1F2990D2B3555759F08499F0"
+  m_functionName: 
+  m_description: 
+  m_additionalIncludes:
+    m_additionalIncludes: []
+    m_outsideIncludes: []
+  m_additionalPragmas:
+    m_additionalPragmas: []
+    m_outsidePragmas: []
+  m_additionalDirectives:
+    m_validData: 0
+    m_isDirty: 0
+    m_moduleName: ' Additional Directives'
+    m_independentModule: 1
+    m_additionalDirectives: []
+    m_shaderFunctionDirectives: []
+    m_nativeDirectives: []
+    m_nativeDirectivesFoldout: 0
+    m_directivesSaveItems: []
+  m_nodeCategory: 3
+  m_customNodeCategory: 
+  m_previewPosition: 0
+  m_hidden: 0

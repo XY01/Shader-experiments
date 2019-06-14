@@ -29,7 +29,7 @@ Material:
     - _Frequency: 0.2
     - _NormalLerp: 0.7
     - _Offset: 0.3
-    - _Speed: 0.1
+    - _Speed: 0.38
     - _Tiling: 0.05
     - __dirty: 0
     m_Colors:

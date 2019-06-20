@@ -44,6 +44,8 @@ public class CVControllerBase : MonoBehaviour
         // Update control values
         for (int i = 0; i < _ControlValues.Length; i++)
             _ControlValues[i].UpdateValue();
+
+        UpdateControlValueEffects();
     }
 
     protected virtual void UpdateControlValueEffects()

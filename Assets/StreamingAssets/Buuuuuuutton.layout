@@ -1,0 +1,242 @@
+[
+  {
+    "_ControllerType": 0,
+    "_OSCValueType": 0,
+    "_OutputValueRange": {
+      "x": 0.0,
+      "y": 1.0
+    },
+    "_OSCAddress": "/Button",
+    "_RectPos": {
+      "x": 433.636353,
+      "y": 582.5454
+    },
+    "_RectSize": {
+      "x": 318.181824,
+      "y": 272.727264
+    },
+    "OscListener": {
+      "m_Address": "/Button",
+      "m_ListenForChildren": false,
+      "m_DefualtValueIndex": 0,
+      "Updated": false,
+      "DataAvailable": false
+    }
+  },
+  {
+    "_ControllerType": 0,
+    "_OSCValueType": 0,
+    "_OutputValueRange": {
+      "x": 0.0,
+      "y": 1.0
+    },
+    "_OSCAddress": "/Button",
+    "_RectPos": {
+      "x": 856.363647,
+      "y": 419.8181
+    },
+    "_RectSize": {
+      "x": 185.454529,
+      "y": 554.5454
+    },
+    "OscListener": {
+      "m_Address": "/Button",
+      "m_ListenForChildren": false,
+      "m_DefualtValueIndex": 0,
+      "Updated": false,
+      "DataAvailable": false
+    }
+  },
+  {
+    "_ControllerType": 0,
+    "_OSCValueType": 0,
+    "_OutputValueRange": {
+      "x": 0.0,
+      "y": 1.0
+    },
+    "_OSCAddress": "/Button",
+    "_RectPos": {
+      "x": 1460.909,
+      "y": 542.5454
+    },
+    "_RectSize": {
+      "x": 678.1819,
+      "y": 221.818146
+    },
+    "OscListener": {
+      "m_Address": "/Button",
+      "m_ListenForChildren": false,
+      "m_DefualtValueIndex": 0,
+      "Updated": false,
+      "DataAvailable": false
+    }
+  },
+  {
+    "_ControllerType": 0,
+    "_OSCValueType": 0,
+    "_OutputValueRange": {
+      "x": 0.0,
+      "y": 1.0
+    },
+    "_OSCAddress": "/Button",
+    "_RectPos": {
+      "x": 722.9269,
+      "y": 545.028748
+    },
+    "_RectSize": {
+      "x": 760.354736,
+      "y": 252.682922
+    },
+    "OscListener": {
+      "m_Address": "/Button",
+      "m_ListenForChildren": false,
+      "m_DefualtValueIndex": 0,
+      "Updated": false,
+      "DataAvailable": false
+    }
+  },
+  {
+    "_ControllerType": 1,
+    "_OSCValueType": 0,
+    "_OutputValueRange": {
+      "x": 0.0,
+      "y": 1.0
+    },
+    "_OSCAddress": "/Slider",
+    "_RectPos": {
+      "x": 1551.4856,
+      "y": 384.585358
+    },
+    "_RectSize": {
+      "x": 100.0,
+      "y": 600.0
+    },
+    "OscListener": {
+      "m_Address": "/Slider",
+      "m_ListenForChildren": false,
+      "m_DefualtValueIndex": 0,
+      "Updated": false,
+      "DataAvailable": false
+    }
+  },
+  {
+    "_ControllerType": 0,
+    "_OSCValueType": 0,
+    "_OutputValueRange": {
+      "x": 0.0,
+      "y": 1.0
+    },
+    "_OSCAddress": "/Button",
+    "_RectPos": {
+      "x": 722.9269,
+      "y": 545.028748
+    },
+    "_RectSize": {
+      "x": 760.354736,
+      "y": 252.682922
+    },
+    "OscListener": {
+      "m_Address": "/Button",
+      "m_ListenForChildren": false,
+      "m_DefualtValueIndex": 0,
+      "Updated": false,
+      "DataAvailable": false
+    }
+  },
+  {
+    "_ControllerType": 1,
+    "_OSCValueType": 0,
+    "_OutputValueRange": {
+      "x": 0.0,
+      "y": 1.0
+    },
+    "_OSCAddress": "/Slider",
+    "_RectPos": {
+      "x": 1551.4856,
+      "y": 384.585358
+    },
+    "_RectSize": {
+      "x": 100.0,
+      "y": 600.0
+    },
+    "OscListener": {
+      "m_Address": "/Slider",
+      "m_ListenForChildren": false,
+      "m_DefualtValueIndex": 0,
+      "Updated": false,
+      "DataAvailable": false
+    }
+  },
+  {
+    "_ControllerType": 0,
+    "_OSCValueType": 0,
+    "_OutputValueRange": {
+      "x": 0.0,
+      "y": 1.0
+    },
+    "_OSCAddress": "/Button",
+    "_RectPos": {
+      "x": 433.636353,
+      "y": 582.5454
+    },
+    "_RectSize": {
+      "x": 318.181824,
+      "y": 272.727264
+    },
+    "OscListener": {
+      "m_Address": "/Button",
+      "m_ListenForChildren": false,
+      "m_DefualtValueIndex": 0,
+      "Updated": false,
+      "DataAvailable": false
+    }
+  },
+  {
+    "_ControllerType": 0,
+    "_OSCValueType": 0,
+    "_OutputValueRange": {
+      "x": 0.0,
+      "y": 1.0
+    },
+    "_OSCAddress": "/Button",
+    "_RectPos": {
+      "x": 856.363647,
+      "y": 419.8181
+    },
+    "_RectSize": {
+      "x": 185.454529,
+      "y": 554.5454
+    },
+    "OscListener": {
+      "m_Address": "/Button",
+      "m_ListenForChildren": false,
+      "m_DefualtValueIndex": 0,
+      "Updated": false,
+      "DataAvailable": false
+    }
+  },
+  {
+    "_ControllerType": 0,
+    "_OSCValueType": 0,
+    "_OutputValueRange": {
+      "x": 0.0,
+      "y": 1.0
+    },
+    "_OSCAddress": "/Button",
+    "_RectPos": {
+      "x": 1460.909,
+      "y": 542.5454
+    },
+    "_RectSize": {
+      "x": 678.1819,
+      "y": 221.818146
+    },
+    "OscListener": {
+      "m_Address": "/Button",
+      "m_ListenForChildren": false,
+      "m_DefualtValueIndex": 0,
+      "Updated": false,
+      "DataAvailable": false
+    }
+  }
+]

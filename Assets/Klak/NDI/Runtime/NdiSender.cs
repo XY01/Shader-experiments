@@ -80,7 +80,12 @@ namespace Klak.Ndi
             // On Editor, this may be called multiple times in a single frame.
             // To avoid wasting memory (actually this can cause an out-of-memory
             // exception), check the frame count and reject duplicated requests.
-            if (_lastFrameCount == Time.frameCount) return;
+            if (_lastFrameCount == Time.frameCount)
+            {
+                Debug.LogWarning(name + "   Too many calls in one frame.");
+                return;
+            }
+
             _lastFrameCount = Time.frameCount;
 
             // Return the old render texture to the pool.

@@ -11,11 +11,10 @@ namespace BodhiDonselaar
 	{
 		private static Material _EquiMat;
 		public Size RenderResolution = Size.Default;
-		private RenderTexture _CubemapRT;
+		public RenderTexture _CubemapRT;
 		private Camera _Cam;
 		private GameObject _ChildGO;
-
-        public NdiSender _NDISender;
+        
         public Material _ProjectionMat;
         
 		public enum Size
@@ -37,13 +36,6 @@ namespace BodhiDonselaar
 			_Cam.CopyFrom(GetComponent<Camera>());
 			_ChildGO.SetActive(false);
 			New();
-            
-            if (_NDISender != null)
-            {
-                _NDISender._Source = NdiSender.Source.RenderTexture;
-                _NDISender.sourceTexture = _CubemapRT;
-            }
-
         }
 		void OnDisable()
 		{
@@ -61,9 +53,6 @@ namespace BodhiDonselaar
 			_Cam.RenderToCubemap(_CubemapRT);
 			Shader.SetGlobalFloat("FORWARD", _Cam.transform.eulerAngles.y * 0.01745f);
 			Graphics.Blit(_CubemapRT, des, _EquiMat);
-
-            // Set the NDI source texture to the cubemap each time it renders
-            _NDISender.sourceTexture = _CubemapRT;
         }
 
 		private void New()

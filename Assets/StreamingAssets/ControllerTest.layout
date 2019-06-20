@@ -1,0 +1,50 @@
+[
+  {
+    "_ControllerType": 0,
+    "_OSCValueType": 0,
+    "_OutputValueRange": {
+      "x": 0.0,
+      "y": 1.0
+    },
+    "_OSCAddress": "/Button",
+    "_RectPos": {
+      "x": 722.9269,
+      "y": 545.028748
+    },
+    "_RectSize": {
+      "x": 760.354736,
+      "y": 252.682922
+    },
+    "OscListener": {
+      "m_Address": "/Button",
+      "m_ListenForChildren": false,
+      "m_DefualtValueIndex": 0,
+      "Updated": false,
+      "DataAvailable": false
+    }
+  },
+  {
+    "_ControllerType": 1,
+    "_OSCValueType": 0,
+    "_OutputValueRange": {
+      "x": 0.0,
+      "y": 1.0
+    },
+    "_OSCAddress": "/Slider",
+    "_RectPos": {
+      "x": 1551.4856,
+      "y": 384.585358
+    },
+    "_RectSize": {
+      "x": 100.0,
+      "y": 600.0
+    },
+    "OscListener": {
+      "m_Address": "/Slider",
+      "m_ListenForChildren": false,
+      "m_DefualtValueIndex": 0,
+      "Updated": false,
+      "DataAvailable": false
+    }
+  }
+]

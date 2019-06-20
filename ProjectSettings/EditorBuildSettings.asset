@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_Project/_Shader Mixer/Scenes/Shader Mixer.unity
+    path: Assets/_Project/Scenes/Shader Mixer.unity
     guid: f487f0b3744f507479ca58239995b4bc
   m_configObjects: {}

@@ -10,6 +10,7 @@ public class CVControllerBase : MonoBehaviour
     public string _OSCPrefix;
     public ControlValue[] _ControlValues;
     public bool _SelfInit = false;
+    bool _Initialized = false;
 
     private void Start()
     {
@@ -17,15 +18,36 @@ public class CVControllerBase : MonoBehaviour
             Init(_OSCPrefix);
     }
 
-    public virtual void Init(string oscPrefix)
+    public void Init(string oscPrefix)
     {
         _OSCPrefix = oscPrefix;
+
+        SetupControlValues();
+
+        // Init all control values
+        for (int i = 0; i < _ControlValues.Length; i++)
+            _ControlValues[i].Init(_OSCPrefix + "/" + _ControlValues[i]._Name);
+
+        _Initialized = true;
     }
 
-    protected virtual void Update()
+    protected virtual void SetupControlValues()
     {
+
+    }
+
+    void Update()
+    {
+        if (!_Initialized)
+            return;
+
         // Update control values
         for (int i = 0; i < _ControlValues.Length; i++)
             _ControlValues[i].UpdateValue();
+    }
+
+    protected virtual void UpdateControlValueEffects()
+    {
+
     }
 }

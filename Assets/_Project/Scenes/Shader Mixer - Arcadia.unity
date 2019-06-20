@@ -4959,6 +4959,7 @@ GameObject:
   - component: {fileID: 1526664424}
   - component: {fileID: 1526664423}
   - component: {fileID: 1526664426}
+  - component: {fileID: 1526664427}
   m_Layer: 0
   m_Name: Vert crunch
   m_TagString: Untagged
@@ -5050,6 +5051,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68487ac69ac07124e960e873d52c93e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _OSCPrefix: 
   _ControlValues:
   - _Name: _Offset
     _NormalizedValue: 0
@@ -5057,8 +5059,23 @@ MonoBehaviour:
   - _Name: Tiling
     _NormalizedValue: 0
     _Range: {x: 0, y: 0.3}
-  _Name: VertOffset
+  _SelfInit: 1
   _Mat: {fileID: 2100000, guid: b04c9b6a28d36af47a47225362a2a9f5, type: 2}
+--- !u!114 &1526664427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526664421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f999fdaa7d821f4c9d8240261a30480, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _OSCPrefix: 
+  _ControlValues: []
+  _SelfInit: 1
 --- !u!224 &1563102647 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3267987681211541558, guid: 07c3f21523caac141905df4f52bb994e,
@@ -5727,7 +5744,7 @@ Camera:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1654252916}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
   m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}

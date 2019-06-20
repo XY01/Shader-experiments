@@ -5,25 +5,18 @@ using UnityEngine;
 public class CVControllerRotation : CVControllerBase
 {
     // Start is called before the first frame update
-    public override void Init(string oscprefix)
+    protected override void SetupControlValues()
     {
         _ControlValues = new ControlValue[3];
 
-        _ControlValues[0] = new ControlValue("x", 0, 0, 30, oscprefix);
-
-        // Init all control values
-        for (int i = 0; i < _ControlValues.Length; i++)
-        {
-            _ControlValues[i].Init(_OSCPrefix + "/" + _ControlValues[i]._Name);
-        }
+        _ControlValues[0] = new ControlValue("x", 0, 0, 30, _OSCPrefix);
+        _ControlValues[1] = new ControlValue("y", 0, 0, 30, _OSCPrefix);
+        _ControlValues[2] = new ControlValue("z", 0, 0, 30, _OSCPrefix);
     }
 
     // Update is called once per frame
-    protected override void Update()
+    protected override void UpdateControlValueEffects()
     {
-        for (int i = 0; i < _ControlValues.Length; i++)
-            _ControlValues[i].UpdateValue();          
-
         transform.Rotate(_ControlValues[0].Value, _ControlValues[1].Value, _ControlValues[2].Value);
     }
 }

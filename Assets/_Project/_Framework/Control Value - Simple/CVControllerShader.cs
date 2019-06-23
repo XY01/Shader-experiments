@@ -10,6 +10,16 @@ public class CVControllerShader : CVControllerBase
     protected override void UpdateControlValueEffects()
     {
         for (int i = 0; i < _ControlValues.Length; i++)
-            _Mat.SetFloat(_ControlValues[i]._Name, _ControlValues[i].Value);
+        {
+            if(_ControlValues[i]._Culumlative)
+                _Mat.SetFloat(_ControlValues[i]._Name, _ControlValues[i].CumulativeValue);
+            else
+                _Mat.SetFloat(_ControlValues[i]._Name, _ControlValues[i].Value);
+           
+               
+        }
+
+        // Set manual time in the shader
+        _Mat.SetFloat("_ManualTime", Time.time);
     }
 }

@@ -9,6 +9,9 @@ public class CVControllerBase : MonoBehaviour
 {
     public string OSCAddress { get; private set; }
     public ControlValue[] _ControlValues;
+
+    List<ControlValue> _CVList = new List<ControlValue>();
+
     public bool _SelfInit = false;
     bool _Initialized = false;
     public string _ControllerName;
@@ -44,7 +47,7 @@ public class CVControllerBase : MonoBehaviour
 
         // Update control values
         for (int i = 0; i < _ControlValues.Length; i++)
-            _ControlValues[i].UpdateValue();
+            _ControlValues[i].UpdateValue(Time.fixedDeltaTime);
 
         UpdateControlValueEffects();
     }

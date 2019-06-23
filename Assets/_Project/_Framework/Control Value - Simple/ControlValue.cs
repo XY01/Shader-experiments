@@ -8,7 +8,16 @@ public class ControlValue
     public string _Name = "/Test/Value";
     [Range(0,1)] public float _NormalizedValue = 0;
     public Vector2 _Range = new Vector2(0, 1);
-    public float Value { get { return _NormalizedValue.ScaleFrom01(_Range.x, _Range.y); } }
+    public float Value { get; private set; }
+
+    [Header("Optional")]
+    // Used to maintain a value that accumulates by the output value each frame
+    // Used for things like timers in shaders
+    public bool _Culumlative = false;
+    public float CumulativeValue { private set; get; }
+
+    public float _SmoothingSpeed = 0;
+
 
     OSCListener _OSCListener;
 
@@ -27,8 +36,18 @@ public class ControlValue
         _OSCListener = new OSCListener(oscAddress+_Name);
     }
 
-    public void UpdateValue()
+    public void UpdateValue(float delta)
     {
+        // CUMULATIVE VALUES - Accumulate value over time for things like offsets in shaders
+        if (_Culumlative)
+            CumulativeValue += delta * Value;
+
+        // SMOOTHING - Add smoothign if smoothing speed set higher than 0
+        if (_SmoothingSpeed == 0)
+            Value = _NormalizedValue.ScaleFrom01(_Range.x, _Range.y);
+        else
+            Value = Mathf.Lerp(Value, _NormalizedValue.ScaleFrom01(_Range.x, _Range.y), _SmoothingSpeed * delta);
+
         if (_OSCListener.Updated)
         {
             
@@ -37,7 +56,6 @@ public class ControlValue
         if (_OSCListener.DataAvailable)
         {
             _NormalizedValue = _OSCListener.GetDataAsFloat();
-            Debug.Log(_Name + "  222    " + _NormalizedValue);
         }
     }
 }

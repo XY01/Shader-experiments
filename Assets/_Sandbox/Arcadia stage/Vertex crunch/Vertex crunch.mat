@@ -27,14 +27,27 @@ Material:
         m_Texture: {fileID: 2800000, guid: cd460ee4ac5c1e746b7a734cc7cc64dd, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _Cutoff: 0.5
     - _EMissivescaler: 400
+    - _EdgeLength: 15
+    - _Fade: 0
+    - _FadeNoiseSize: 0.88
     - _FreqPI: 0.5
     - _Frequency: 0.4
+    - _ManualTime: 2.9199998
+    - _NoiseSize: 0.9
     - _NormalLerp: 0.5
-    - _Offset: -0.2
-    - _Speed: 0.1
-    - _Tiling: 0.03
+    - _Offset: -0.07999998
+    - _PosSpeed: 0.67
+    - _Speed: 0.31
+    - _TexValOffset: 8.064384
+    - _Tiling: 0.086700976
+    - _WorldPosOffset: 69.07681
     - __dirty: 0
     m_Colors:
     - _MainCol: {r: 0.8018868, g: 0.8018868, b: 0.8018868, a: 0}

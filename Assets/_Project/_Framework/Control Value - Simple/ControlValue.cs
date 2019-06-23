@@ -25,7 +25,7 @@ public class ControlValue
     public void Init(string oscAddress)
     {
         // Init osc listener
-        _OSCListener = new OSCListener(oscAddress+"/"+_Name);
+        _OSCListener = new OSCListener(oscAddress+_Name);
     }
 
     public void UpdateValue()

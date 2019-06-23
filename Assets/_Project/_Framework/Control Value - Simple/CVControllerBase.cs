@@ -7,10 +7,11 @@ using UnityEngine;
 // i.e. rotation conttroller updates transform rotation using control values
 public class CVControllerBase : MonoBehaviour
 {
-    public string _OSCPrefix;
+    protected string _OSCPrefix;    
     public ControlValue[] _ControlValues;
     public bool _SelfInit = false;
     bool _Initialized = false;
+    public string _ControllerName;
 
     private void Start()
     {
@@ -20,20 +21,18 @@ public class CVControllerBase : MonoBehaviour
 
     public void Init(string oscPrefix)
     {
-        _OSCPrefix = oscPrefix;
+        _OSCPrefix = oscPrefix +"/"+ _ControllerName;
 
         SetupControlValues();
-
-        // Init all control values
-        for (int i = 0; i < _ControlValues.Length; i++)
-            _ControlValues[i].Init(_OSCPrefix + "/" + _ControlValues[i]._Name);
-
+        
         _Initialized = true;
     }
 
     protected virtual void SetupControlValues()
     {
-
+        // Init all control values
+        for (int i = 0; i < _ControlValues.Length; i++)
+            _ControlValues[i].Init(_OSCPrefix);
     }
 
     void Update()

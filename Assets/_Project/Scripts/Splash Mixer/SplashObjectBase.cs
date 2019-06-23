@@ -11,10 +11,18 @@ public class SplashObjectBase : MonoBehaviour
 {
     CVControllerBase[] _CVControllers;
 
+    public string _OSCPrefix;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        _CVControllers = GetComponentsInChildren<CVControllerBase>();
+        _OSCPrefix = "/"+name;
+
+        for (int i = 0; i < _CVControllers.Length; i++)
+        {
+            _CVControllers[i].Init(_OSCPrefix);
+        }
     }
 
     // Update is called once per frame

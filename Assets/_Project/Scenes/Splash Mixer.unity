@@ -5237,6 +5237,7 @@ GameObject:
   - component: {fileID: 1526664425}
   - component: {fileID: 1526664424}
   - component: {fileID: 1526664423}
+  - component: {fileID: 1526664428}
   - component: {fileID: 1526664426}
   - component: {fileID: 1526664427}
   m_Layer: 0
@@ -5335,10 +5336,10 @@ MonoBehaviour:
   - _Name: _Offset
     _NormalizedValue: 0
     _Range: {x: -0.2, y: 0.2}
-  - _Name: Tiling
+  - _Name: _Tiling
     _NormalizedValue: 0
     _Range: {x: 0, y: 0.3}
-  _SelfInit: 1
+  _SelfInit: 0
   _Mat: {fileID: 2100000, guid: b04c9b6a28d36af47a47225362a2a9f5, type: 2}
 --- !u!114 &1526664427
 MonoBehaviour:
@@ -5354,7 +5355,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _OSCPrefix: 
   _ControlValues: []
-  _SelfInit: 1
+  _SelfInit: 0
+--- !u!114 &1526664428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526664421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 008a0390ed1eb0349b33147fee246958, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _OSCPrefix: 
 --- !u!224 &1563102647 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3267987681211541558, guid: 07c3f21523caac141905df4f52bb994e,

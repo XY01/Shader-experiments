@@ -27,6 +27,8 @@ public class OSCListener
         m_Address = address;
         OSCHandler.Instance.AddListener(this, false);
         m_Data = new Queue<KeyValuePair<string, List<object>>>();
+
+        Debug.Log("OSC LISTENER: " + m_Address);
     }
 
     public void Init()

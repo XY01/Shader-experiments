@@ -126,7 +126,7 @@ namespace Klak.Ndi
                 // Skip error frames.
                 if (frame.readback.hasError)
                 {
-                    Debug.LogWarning("GPU readback error was detected.");
+                    //Debug.LogWarning("GPU readback error was detected.");
                     _frameQueue.Dequeue();
                     continue;
                 }

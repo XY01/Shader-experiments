@@ -9,9 +9,9 @@ public class CVControllerRotation : CVControllerBase
     {
         _ControlValues = new ControlValue[3];
 
-        _ControlValues[0] = new ControlValue("x", 0, 0, 30, _OSCPrefix);
-        _ControlValues[1] = new ControlValue("y", 0, 0, 30, _OSCPrefix);
-        _ControlValues[2] = new ControlValue("z", 0, 0, 30, _OSCPrefix);
+        _ControlValues[0] = new ControlValue("x", 0, 0, 30, OSCAddress);
+        _ControlValues[1] = new ControlValue("y", 0, 0, 30, OSCAddress);
+        _ControlValues[2] = new ControlValue("z", 0, 0, 30, OSCAddress);
     }
 
     // Update is called once per frame

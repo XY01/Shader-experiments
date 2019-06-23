@@ -618,7 +618,6 @@ public class OSCHandler : MonoBehaviour
     }
 
     public bool m_LogListeners = false;
-    public bool m_LogInput = true;
 
     Vector2 scrollPosition = Vector2.zero;
     Vector2 scrollPosition1 = Vector2.zero;

@@ -6,7 +6,6 @@ using UnityEngine;
 public class ControlValue
 {
     public string _Name = "/Test/Value";
-
     [Range(0,1)] public float _NormalizedValue = 0;
     public Vector2 _Range = new Vector2(0, 1);
     public float Value { get { return _NormalizedValue.ScaleFrom01(_Range.x, _Range.y); } }
@@ -30,7 +29,15 @@ public class ControlValue
 
     public void UpdateValue()
     {
+        if (_OSCListener.Updated)
+        {
+            
+        }
+
         if (_OSCListener.DataAvailable)
+        {
             _NormalizedValue = _OSCListener.GetDataAsFloat();
+            Debug.Log(_Name + "  222    " + _NormalizedValue);
+        }
     }
 }

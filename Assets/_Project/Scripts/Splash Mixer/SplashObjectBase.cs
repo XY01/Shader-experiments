@@ -9,19 +9,18 @@ using UnityEngine;
 /// </summary>
 public class SplashObjectBase : MonoBehaviour
 {
-    CVControllerBase[] _CVControllers;
-
-    public string _OSCPrefix;
+    public CVControllerBase[] CVControllers { private set; get; }
+    public string OSCPrefix { private set; get; }
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        _CVControllers = GetComponentsInChildren<CVControllerBase>();
-        _OSCPrefix = "/"+name;
+        CVControllers = GetComponentsInChildren<CVControllerBase>();
+        OSCPrefix = "/"+name;
 
-        for (int i = 0; i < _CVControllers.Length; i++)
+        for (int i = 0; i < CVControllers.Length; i++)
         {
-            _CVControllers[i].Init(_OSCPrefix);
+            CVControllers[i].Init(OSCPrefix);
         }
     }
 
@@ -32,13 +31,13 @@ public class SplashObjectBase : MonoBehaviour
     }
 
     // Activate splash object
-    protected void Activate()
+    public void Activate()
     {
 
     }
 
     // Deactivate splash object
-    protected void Deactivate()
+    public void Deactivate()
     {
 
     }

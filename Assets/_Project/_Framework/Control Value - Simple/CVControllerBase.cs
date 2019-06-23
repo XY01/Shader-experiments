@@ -16,7 +16,6 @@ public class CVControllerBase : MonoBehaviour
     bool _Initialized = false;
     public string _ControllerName;
     
-
     private void Start()
     {
         if (_SelfInit)

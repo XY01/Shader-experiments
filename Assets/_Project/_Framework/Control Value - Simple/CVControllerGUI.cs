@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// A gui for a collection of control values made up of CV sliders
+/// </summary>
 public class CVControllerGUI : MonoBehaviour
 {
     public Text _HeadingText;
@@ -24,22 +27,7 @@ public class CVControllerGUI : MonoBehaviour
             _SliderParents[i].GetComponentInChildren<Text>().text = _Controller._ControlValues[i]._Name;
 
             _CVSliders[i] = _SliderParents[i].GetComponentInChildren<CVSlider>();
-            _CVSliders[i].onValueChanged.AddListener((float f) => _Controller._ControlValues[index]._NormalizedValue = f);
-        }
-
-        UpdateSliders();
-    }
-
-    private void Update()
-    {
-        UpdateSliders();
-    }
-
-    private void UpdateSliders()
-    {
-        for (int i = 0; i < _SliderParents.Length; i++)
-        {
-            _CVSliders[i].SetValue(  _Controller._ControlValues[i]._NormalizedValue, false );
+            _CVSliders[i].Init(_Controller._ControlValues[index]);//.onValueChanged.AddListener((float f) => _Controller._ControlValues[index]._NormalizedValue = f);
         }
     }
 }

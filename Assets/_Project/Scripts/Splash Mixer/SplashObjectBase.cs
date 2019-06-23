@@ -12,7 +12,7 @@ public class SplashObjectBase : MonoBehaviour
     public CVControllerBase[] CVControllers { private set; get; }
     public string OSCPrefix { private set; get; }
 
-    ControlValue _FadeCV;
+    public ControlValue _FadeCV;
 
     // Start is called before the first frame update
     void Awake()
@@ -20,7 +20,7 @@ public class SplashObjectBase : MonoBehaviour
         CVControllers = GetComponentsInChildren<CVControllerBase>();
         OSCPrefix = "/"+name;
 
-        //_FadeCV = new ControlValue("fade", 1, 0, 1, OSCPrefix + "/");
+        _FadeCV = new ControlValue("fade", 1, 0, 1, OSCPrefix + "/");
 
         for (int i = 0; i < CVControllers.Length; i++)
         {

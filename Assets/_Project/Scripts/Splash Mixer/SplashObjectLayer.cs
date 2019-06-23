@@ -8,28 +8,39 @@ public class SplashObjectLayer : MonoBehaviour
   
     public bool _Draw = false;
 
-    SplashObject_GUI _SOGUI;
+    public SplashObjectLayerGUI _GUI;
+
+
+    private void Start()
+    {
+        _GUI.Init(this);
+    }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-            SetActiveObject(SplashMixer.Instance._AllSplashObjects[0]);
+    }
+
+    public void DeactivateObject()
+    {
+        // Deacctivate current SO
+        if (_SplashObject != null)
+        {
+            _SplashObject.Deactivate();
+            _SplashObject = null;
+            _GUI.DestroyGUI();
+        }
     }
 
     public void SetActiveObject(SplashObjectBase so)
     {
         // Deacctivate current SO
         if (_SplashObject != null)
-        {
-            _SplashObject.Deactivate();
-            Destroy(_SOGUI.gameObject);
-        }
+            _SplashObject.Deactivate();        
 
         // Activate new Splash Object
         _SplashObject = so;
         _SplashObject.Activate();
 
-        // Create new GUI
-        _SOGUI = SplashMixer_GUIManager.Instance.CreateSplashObjectGUI(_SplashObject);
+        _GUI.SetActiveObject(_SplashObject);       
     }    
 }

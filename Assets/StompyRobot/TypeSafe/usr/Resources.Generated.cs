@@ -739,21 +739,28 @@ public sealed class SRResources {
             }
         }
         
-        public static global::TypeSafe.PrefabResource Window_Selection_List {
+        public static global::TypeSafe.PrefabResource Panel_Splash_Layer_0 {
             get {
                 return ((global::TypeSafe.PrefabResource)(@__ts_internal_resources[2]));
             }
         }
         
-        public static global::TypeSafe.PrefabResource Window {
+        public static global::TypeSafe.PrefabResource Window_Selection_List {
             get {
                 return ((global::TypeSafe.PrefabResource)(@__ts_internal_resources[3]));
+            }
+        }
+        
+        public static global::TypeSafe.PrefabResource Window {
+            get {
+                return ((global::TypeSafe.PrefabResource)(@__ts_internal_resources[4]));
             }
         }
         
         private static global::System.Collections.Generic.IList<global::TypeSafe.IResource> @__ts_internal_resources = new global::System.Collections.ObjectModel.ReadOnlyCollection<global::TypeSafe.IResource>(new global::TypeSafe.IResource[] {
                     new global::TypeSafe.PrefabResource("Button", "UI/Button"),
                     new global::TypeSafe.PrefabResource("Text Slider", "UI/Text Slider"),
+                    new global::TypeSafe.PrefabResource("Panel - Splash Layer 0", "UI/Panel - Splash Layer 0"),
                     new global::TypeSafe.PrefabResource("Window - Selection List", "UI/Window - Selection List"),
                     new global::TypeSafe.PrefabResource("Window", "UI/Window")});
         

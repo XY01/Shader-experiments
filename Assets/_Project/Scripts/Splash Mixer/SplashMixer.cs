@@ -59,9 +59,9 @@ public class SplashMixer : MonoBehaviour
         ActiveLayer = _Layers[0];
     }
     
-    public void SelectLayerAndOpenSelection(int index)
+    public void SelectLayerAndOpenSelection(SplashObjectLayer layer)
     {
-        ActiveLayer = _Layers[index];
+        ActiveLayer = layer;
         SplashMixer_GUIManager.Instance.OpenObjectSelection();
     }
 }

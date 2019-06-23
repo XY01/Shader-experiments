@@ -39,15 +39,15 @@ Material:
     - _FadeNoiseSize: 0.88
     - _FreqPI: 0.5
     - _Frequency: 0.4
-    - _ManualTime: 44.64
+    - _ManualTime: 110.2
     - _NoiseSize: 0.9
     - _NormalLerp: 0.5
     - _Offset: -0.07999998
     - _PosSpeed: 0.67
     - _Speed: 0.31
-    - _TexValOffset: 4.024073
-    - _Tiling: 0.08400001
-    - _WorldPosOffset: 8.048146
+    - _TexValOffset: 8.475612
+    - _Tiling: 0.23313296
+    - _WorldPosOffset: -21.32475
     - __dirty: 0
     m_Colors:
     - _MainCol: {r: 0.8018868, g: 0.8018868, b: 0.8018868, a: 0}

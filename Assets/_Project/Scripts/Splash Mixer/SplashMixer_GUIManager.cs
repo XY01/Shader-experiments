@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class SplashMixer_GUIManager : MonoBehaviour
 {
     public static SplashMixer_GUIManager Instance;
-    public RectTransform _LayerParent;
+   // public RectTransform _LayerParent;
     public UISelectionList _SelectionList;
    
 
@@ -18,9 +18,9 @@ public class SplashMixer_GUIManager : MonoBehaviour
 
    
 
-    public SplashObject_GUI CreateSplashObjectGUI(SplashObjectBase so)
+    public SplashObject_GUI CreateSplashObjectGUI(SplashObjectBase so, RectTransform parent)
     {
-        SplashObject_GUI sOGUI = SRResources.Splash_UI.Panel_Splash_Object_GUI.Instantiate(_LayerParent).GetComponent<SplashObject_GUI>();
+        SplashObject_GUI sOGUI = SRResources.Splash_UI.Panel_Splash_Object_GUI.Instantiate(parent).GetComponent<SplashObject_GUI>();
         sOGUI.Initialize(so);
 
         return sOGUI;

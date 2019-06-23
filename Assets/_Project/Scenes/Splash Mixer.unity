@@ -1073,7 +1073,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Source: 0
   _sourceTexture: {fileID: 0}
-  _alphaSupport: 0
+  _alphaSupport: 1
 --- !u!1 &1302128293
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,20 +5,31 @@ using UnityEngine;
 public class SplashObjectLayer : MonoBehaviour
 {
     SplashObjectBase _SplashObject;
-    ControlValue _Fade;
-
+  
     public bool _Draw = false;
 
-    // Start is called before the first frame update
-    void Start()
+    SplashObject_GUI _SOGUI;
+
+    private void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+            SetActiveObject(SplashMixer.Instance._AllSplashObjects[0]);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetActiveObject(SplashObjectBase so)
     {
-        
-    }
-    
+        // Deacctivate current SO
+        if (_SplashObject != null)
+        {
+            _SplashObject.Deactivate();
+            Destroy(_SOGUI.gameObject);
+        }
+
+        // Activate new Splash Object
+        _SplashObject = so;
+        _SplashObject.Activate();
+
+        // Create new GUI
+        _SOGUI = SplashMixer_GUIManager.Instance.CreateSplashObjectGUI(_SplashObject);
+    }    
 }

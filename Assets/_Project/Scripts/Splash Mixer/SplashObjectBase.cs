@@ -35,14 +35,14 @@ public class SplashObjectBase : MonoBehaviour
     }
 
     // Activate splash object
-    public void Activate()
+    public virtual void Activate()
     {
-
+        gameObject.SetActive(true);
     }
 
     // Deactivate splash object
-    public void Deactivate()
+    public virtual void Deactivate()
     {
-
+        gameObject.SetActive(false);
     }
 }

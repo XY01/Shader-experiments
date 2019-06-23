@@ -57,21 +57,15 @@ public sealed class SRResources {
         }
     }
     
-    public static global::TypeSafe.PrefabResource Text_Slider {
-        get {
-            return ((global::TypeSafe.PrefabResource)(@__ts_internal_resources[6]));
-        }
-    }
-    
     public static global::TypeSafe.Resource<global::UnityEngine.Shader> Receiver {
         get {
-            return ((global::TypeSafe.Resource<global::UnityEngine.Shader>)(@__ts_internal_resources[7]));
+            return ((global::TypeSafe.Resource<global::UnityEngine.Shader>)(@__ts_internal_resources[6]));
         }
     }
     
     public static global::TypeSafe.Resource<global::UnityEngine.TextAsset> LineBreaking_Following_Characters {
         get {
-            return ((global::TypeSafe.Resource<global::UnityEngine.TextAsset>)(@__ts_internal_resources[8]));
+            return ((global::TypeSafe.Resource<global::UnityEngine.TextAsset>)(@__ts_internal_resources[7]));
         }
     }
     
@@ -82,7 +76,6 @@ public sealed class SRResources {
                 new global::TypeSafe.Resource<global::UnityEngine.Shader>("Sender", "Sender"),
                 new global::TypeSafe.PrefabResource("CV Slider", "CV Slider"),
                 new global::TypeSafe.Resource<global::UnityEngine.Shader>("TinyPlanet", "TinyPlanet"),
-                new global::TypeSafe.PrefabResource("Text Slider", "Text Slider"),
                 new global::TypeSafe.Resource<global::UnityEngine.Shader>("Receiver", "Receiver"),
                 new global::TypeSafe.Resource<global::UnityEngine.TextAsset>("LineBreaking Following Characters", "LineBreaking Following Characters")});
     
@@ -729,6 +722,102 @@ public sealed class SRResources {
         }
     }
     
+    public sealed class UI {
+        
+        private UI() {
+        }
+        
+        public static global::TypeSafe.PrefabResource Button {
+            get {
+                return ((global::TypeSafe.PrefabResource)(@__ts_internal_resources[0]));
+            }
+        }
+        
+        public static global::TypeSafe.PrefabResource Text_Slider {
+            get {
+                return ((global::TypeSafe.PrefabResource)(@__ts_internal_resources[1]));
+            }
+        }
+        
+        public static global::TypeSafe.PrefabResource Window_Selection_List {
+            get {
+                return ((global::TypeSafe.PrefabResource)(@__ts_internal_resources[2]));
+            }
+        }
+        
+        public static global::TypeSafe.PrefabResource Window {
+            get {
+                return ((global::TypeSafe.PrefabResource)(@__ts_internal_resources[3]));
+            }
+        }
+        
+        private static global::System.Collections.Generic.IList<global::TypeSafe.IResource> @__ts_internal_resources = new global::System.Collections.ObjectModel.ReadOnlyCollection<global::TypeSafe.IResource>(new global::TypeSafe.IResource[] {
+                    new global::TypeSafe.PrefabResource("Button", "UI/Button"),
+                    new global::TypeSafe.PrefabResource("Text Slider", "UI/Text Slider"),
+                    new global::TypeSafe.PrefabResource("Window - Selection List", "UI/Window - Selection List"),
+                    new global::TypeSafe.PrefabResource("Window", "UI/Window")});
+        
+        /// <summary>
+        /// Return a list of all resources in this folder.
+        /// This method has a very low performance cost, no need to cache the result.
+        /// </summary>
+        /// <returns>A list of resource objects in this folder.</returns>
+        public static global::System.Collections.Generic.IList<global::TypeSafe.IResource> GetContents() {
+            return @__ts_internal_resources;
+        }
+        
+        private static global::System.Collections.Generic.IList<global::TypeSafe.IResource> @__ts_internal_recursiveLookupCache;
+        
+        /// <summary>
+        /// Return a list of all resources in this folder and all sub-folders.
+        /// The result of this method is cached, so subsequent calls will have very low performance cost.
+        /// </summary>
+        /// <returns>A list of resource objects in this folder and sub-folders.</returns>
+        public static global::System.Collections.Generic.IList<global::TypeSafe.IResource> GetContentsRecursive() {
+            if ((@__ts_internal_recursiveLookupCache != null)) {
+                return @__ts_internal_recursiveLookupCache;
+            }
+            global::System.Collections.Generic.List<global::TypeSafe.IResource> tmp = new global::System.Collections.Generic.List<global::TypeSafe.IResource>();
+            tmp.AddRange(GetContents());
+            @__ts_internal_recursiveLookupCache = tmp;
+            return @__ts_internal_recursiveLookupCache;
+        }
+        
+        /// <summary>
+        /// Return a list of all resources in this folder of type <typeparamref>TResource</typeparamref> (does not include sub-folders)
+        /// This method does not cache the result, so you should cache the result yourself if you will use it often.
+        /// </summary>
+        /// <returns>A list of <typeparamref>TResource</typeparamref> objects in this folder.</returns>
+        public static global::System.Collections.Generic.List<global::TypeSafe.Resource<TResource>> GetContents<TResource>()
+            where TResource : global::UnityEngine.Object {
+            return global::TypeSafe.TypeSafeUtil.GetResourcesOfType<TResource>(GetContents());
+        }
+        
+        /// <summary>
+        /// Return a list of all resources in this folder of type <typeparamref>TResource</typeparamref>, including sub-folders.
+        /// This method does not cache the result, so you should cache the result yourself if you will use it often.
+        /// </summary>
+        /// <returns>A list of <typeparamref>TResource</typeparamref> objects in this folder and sub-folders.</returns>
+        public static global::System.Collections.Generic.List<global::TypeSafe.Resource<TResource>> GetContentsRecursive<TResource>()
+            where TResource : global::UnityEngine.Object {
+            return global::TypeSafe.TypeSafeUtil.GetResourcesOfType<TResource>(GetContentsRecursive());
+        }
+        
+        /// <summary>
+        /// Call Unload() on every loaded resource in this folder.
+        /// </summary>
+        public static void UnloadAll() {
+            global::TypeSafe.TypeSafeUtil.UnloadAll(GetContents());
+        }
+        
+        /// <summary>
+        /// Call Unload() on every loaded resource in this folder and subfolders.
+        /// </summary>
+        private void UnloadAllRecursive() {
+            global::TypeSafe.TypeSafeUtil.UnloadAll(GetContentsRecursive());
+        }
+    }
+    
     public sealed class Fonts_Materials {
         
         private Fonts_Materials() {
@@ -749,6 +838,81 @@ public sealed class SRResources {
         private static global::System.Collections.Generic.IList<global::TypeSafe.IResource> @__ts_internal_resources = new global::System.Collections.ObjectModel.ReadOnlyCollection<global::TypeSafe.IResource>(new global::TypeSafe.IResource[] {
                     new global::TypeSafe.Resource<global::UnityEngine.Material>("LiberationSans SDF - Drop Shadow", "Fonts & Materials/LiberationSans SDF - Drop Shadow"),
                     new global::TypeSafe.Resource<global::UnityEngine.Material>("LiberationSans SDF - Outline", "Fonts & Materials/LiberationSans SDF - Outline")});
+        
+        /// <summary>
+        /// Return a list of all resources in this folder.
+        /// This method has a very low performance cost, no need to cache the result.
+        /// </summary>
+        /// <returns>A list of resource objects in this folder.</returns>
+        public static global::System.Collections.Generic.IList<global::TypeSafe.IResource> GetContents() {
+            return @__ts_internal_resources;
+        }
+        
+        private static global::System.Collections.Generic.IList<global::TypeSafe.IResource> @__ts_internal_recursiveLookupCache;
+        
+        /// <summary>
+        /// Return a list of all resources in this folder and all sub-folders.
+        /// The result of this method is cached, so subsequent calls will have very low performance cost.
+        /// </summary>
+        /// <returns>A list of resource objects in this folder and sub-folders.</returns>
+        public static global::System.Collections.Generic.IList<global::TypeSafe.IResource> GetContentsRecursive() {
+            if ((@__ts_internal_recursiveLookupCache != null)) {
+                return @__ts_internal_recursiveLookupCache;
+            }
+            global::System.Collections.Generic.List<global::TypeSafe.IResource> tmp = new global::System.Collections.Generic.List<global::TypeSafe.IResource>();
+            tmp.AddRange(GetContents());
+            @__ts_internal_recursiveLookupCache = tmp;
+            return @__ts_internal_recursiveLookupCache;
+        }
+        
+        /// <summary>
+        /// Return a list of all resources in this folder of type <typeparamref>TResource</typeparamref> (does not include sub-folders)
+        /// This method does not cache the result, so you should cache the result yourself if you will use it often.
+        /// </summary>
+        /// <returns>A list of <typeparamref>TResource</typeparamref> objects in this folder.</returns>
+        public static global::System.Collections.Generic.List<global::TypeSafe.Resource<TResource>> GetContents<TResource>()
+            where TResource : global::UnityEngine.Object {
+            return global::TypeSafe.TypeSafeUtil.GetResourcesOfType<TResource>(GetContents());
+        }
+        
+        /// <summary>
+        /// Return a list of all resources in this folder of type <typeparamref>TResource</typeparamref>, including sub-folders.
+        /// This method does not cache the result, so you should cache the result yourself if you will use it often.
+        /// </summary>
+        /// <returns>A list of <typeparamref>TResource</typeparamref> objects in this folder and sub-folders.</returns>
+        public static global::System.Collections.Generic.List<global::TypeSafe.Resource<TResource>> GetContentsRecursive<TResource>()
+            where TResource : global::UnityEngine.Object {
+            return global::TypeSafe.TypeSafeUtil.GetResourcesOfType<TResource>(GetContentsRecursive());
+        }
+        
+        /// <summary>
+        /// Call Unload() on every loaded resource in this folder.
+        /// </summary>
+        public static void UnloadAll() {
+            global::TypeSafe.TypeSafeUtil.UnloadAll(GetContents());
+        }
+        
+        /// <summary>
+        /// Call Unload() on every loaded resource in this folder and subfolders.
+        /// </summary>
+        private void UnloadAllRecursive() {
+            global::TypeSafe.TypeSafeUtil.UnloadAll(GetContentsRecursive());
+        }
+    }
+    
+    public sealed class Splash_UI {
+        
+        private Splash_UI() {
+        }
+        
+        public static global::TypeSafe.PrefabResource Panel_Splash_Object_GUI {
+            get {
+                return ((global::TypeSafe.PrefabResource)(@__ts_internal_resources[0]));
+            }
+        }
+        
+        private static global::System.Collections.Generic.IList<global::TypeSafe.IResource> @__ts_internal_resources = new global::System.Collections.ObjectModel.ReadOnlyCollection<global::TypeSafe.IResource>(new global::TypeSafe.IResource[] {
+                    new global::TypeSafe.PrefabResource("Panel - Splash Object GUI", "Splash UI/Panel - Splash Object GUI")});
         
         /// <summary>
         /// Return a list of all resources in this folder.
@@ -835,7 +999,9 @@ public sealed class SRResources {
         tmp.AddRange(GetContents());
         tmp.AddRange(SRDebugger.GetContentsRecursive());
         tmp.AddRange(Shaders.GetContentsRecursive());
+        tmp.AddRange(UI.GetContentsRecursive());
         tmp.AddRange(Fonts_Materials.GetContentsRecursive());
+        tmp.AddRange(Splash_UI.GetContentsRecursive());
         @__ts_internal_recursiveLookupCache = tmp;
         return @__ts_internal_recursiveLookupCache;
     }

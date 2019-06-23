@@ -96,7 +96,7 @@ namespace Klak.Ndi
                 source.width / 2, (_alphaSupport ? 3 : 2) * source.height / 2, 0,
                 RenderTextureFormat.ARGB32, RenderTextureReadWrite.Linear
             );
-
+            
             // Lazy initialization of the conversion shader.
             if (_material == null)
             {

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Klak.Ndi;
+using UnityEngine.UI;
 
 /// <summary>
 ///  Modified Equi cam to push out to NDI
@@ -16,8 +17,13 @@ namespace BodhiDonselaar
 		private GameObject _ChildGO;
         
         public Material _ProjectionMat;
-        
-		public enum Size
+        public RawImage _RawImage;
+
+        public RenderTexture _TempRT;
+
+        public NdiSender _NDISender;
+
+        public enum Size
 		{
 			High = 2048,
 			Default = 1024,
@@ -36,7 +42,14 @@ namespace BodhiDonselaar
 			_Cam.CopyFrom(GetComponent<Camera>());
 			_ChildGO.SetActive(false);
 			New();
+
+            if (_NDISender != null)
+            {
+                _NDISender._Source = NdiSender.Source.RenderTexture;
+                _NDISender.sourceTexture = _TempRT;
+            }
         }
+
 		void OnDisable()
 		{
 			if (_ChildGO != null) DestroyImmediate(_ChildGO);
@@ -52,7 +65,12 @@ namespace BodhiDonselaar
 			if (_CubemapRT.width != (int)RenderResolution) New();
 			_Cam.RenderToCubemap(_CubemapRT);
 			Shader.SetGlobalFloat("FORWARD", _Cam.transform.eulerAngles.y * 0.01745f);
-			Graphics.Blit(_CubemapRT, des, _EquiMat);
+			Graphics.Blit(_CubemapRT, _TempRT, _EquiMat);
+
+            if (_RawImage != null)
+                _RawImage.texture = _TempRT;
+
+            
         }
 
 		private void New()
@@ -70,7 +88,17 @@ namespace BodhiDonselaar
 			_CubemapRT.dimension = UnityEngine.Rendering.TextureDimension.Cube;
 			_CubemapRT.autoGenerateMips = false;
 			_CubemapRT.useMipMap = false;
-			_Cam.targetTexture = _CubemapRT;
-		}
+			
+
+            _TempRT = new RenderTexture((int)RenderResolution, (int)RenderResolution, 0, RenderTextureFormat.ARGB32);
+            _TempRT.antiAliasing = 1;
+            _TempRT.filterMode = FilterMode.Bilinear;
+            _TempRT.anisoLevel = 0;
+            _TempRT.autoGenerateMips = false;
+            _TempRT.useMipMap = false;
+
+            _Cam.targetTexture = _CubemapRT;
+
+        }
 	}
 }

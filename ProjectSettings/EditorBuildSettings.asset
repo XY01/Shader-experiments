@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_Project/Scenes/Shader Mixer - Arcadia.unity
+    path: Assets/_Project/Scenes/Splash Mixer.unity
     guid: 45c90d924df71944795a6c3b89e3b7fb
   m_configObjects: {}

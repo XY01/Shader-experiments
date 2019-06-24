@@ -48,6 +48,11 @@ namespace BodhiDonselaar
                 _NDISender._Source = NdiSender.Source.RenderTexture;
                 _NDISender.sourceTexture = _TempRT;
             }
+
+            if(_ProjectionMat!=null)
+            {
+                _ProjectionMat.SetTexture("_MainTex", _CubemapRT);
+            }
         }
 
 		void OnDisable()
@@ -70,7 +75,11 @@ namespace BodhiDonselaar
             if (_RawImage != null)
                 _RawImage.texture = _TempRT;
 
-            
+            if (_ProjectionMat != null)
+            {
+                _ProjectionMat.SetTexture("_MainTex", _TempRT);
+            }
+
         }
 
 		private void New()

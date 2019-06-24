@@ -53,3 +53,6 @@ MonoBehaviour:
   - Path: Assets/TextMesh Pro/Resources/TMP Settings.asset
     Type: TMPro.TMP_Settings, Unity.TextMeshPro, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+  - Path: Assets/NVIDIA/Flex/Resources/Shaders/FlexDrawFluid.cginc
+    Type: UnityEngine.TextAsset, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null

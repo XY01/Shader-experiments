@@ -45,9 +45,9 @@ Material:
     - _Offset: -0.07999998
     - _PosSpeed: 0.67
     - _Speed: 0.31
-    - _TexValOffset: 8.954818
-    - _Tiling: 0.076762244
-    - _WorldPosOffset: 16.365164
+    - _TexValOffset: 3.482051
+    - _Tiling: 0.08400001
+    - _WorldPosOffset: 6.964102
     - __dirty: 0
     m_Colors:
     - _MainCol: {r: 0.8018868, g: 0.8018868, b: 0.8018868, a: 0}

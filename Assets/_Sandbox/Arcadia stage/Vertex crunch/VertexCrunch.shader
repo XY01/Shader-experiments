@@ -226,7 +226,7 @@ Shader "VertexCrunch"
 }
 /*ASEBEGIN
 Version=16700
-7;1087;1906;1010;314.5722;365.1608;1.3;True;True
+-526;1953;1906;1010;314.5722;365.1608;1.3;True;True
 Node;AmplifyShaderEditor.RangedFloatNode;76;-2321.21,-319.4427;Float;False;Property;_WorldPosOffset;WorldPosOffset;16;0;Create;True;0;0;False;0;0;6.964102;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.WorldPosInputsNode;65;-2329.408,-235.5561;Float;False;0;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3
 Node;AmplifyShaderEditor.RangedFloatNode;10;-2314.518,-66.05868;Float;False;Property;_Tiling;Tiling;11;0;Create;True;0;0;False;0;0.1;0.08400001;0;0;0;1;FLOAT;0
@@ -279,4 +279,4 @@ WireConnection;63;0;9;0
 WireConnection;0;0;9;0
 WireConnection;0;10;59;0
 ASEEND*/
-//CHKSM=D69A71A2C7C13124993DA94E4F38DA4A201E4073
+//CHKSM=25080C61C55ED0A5F81CDE42D5965D853A52B5F0

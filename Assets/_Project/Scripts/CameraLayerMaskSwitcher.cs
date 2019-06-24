@@ -8,11 +8,15 @@ public class CameraLayerMaskSwitcher : MonoBehaviour
     public LayerMask[] _LayerMasks;
     Camera _Camera;
 
+    // TODO hax
+    public Transform _MappingSphere;
+
     public int _DefaultMask = 0;
 
     private void Start()
     {
         _Camera = GetComponent<Camera>();
+        _MappingSphere.gameObject.SetActive(true);
         SetLayerMask(_DefaultMask);
     }
 

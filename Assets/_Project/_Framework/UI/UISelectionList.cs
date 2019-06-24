@@ -44,7 +44,7 @@ public class UISelectionList : MonoBehaviour
         for (int i = 0; i < _SelectionButtons.Length; i++)
         {
             int index = buttonData[i]._ReturnIndex;
-            print("Button index: " + buttonData[i]._ReturnIndex);
+           
             _SelectionButtons[i] = SRResources.UI.Button.Instantiate(_ListParent).GetComponent<Button>();
             _SelectionButtons[i].GetComponentInChildren<Text>().text = buttonData[i]._Name;
             _SelectionButtons[i].onClick.AddListener(() => SelectItem(index) );
@@ -59,7 +59,7 @@ public class UISelectionList : MonoBehaviour
     
     void SelectItem(int index)
     {
-        print(index);
+       
         onItemSelected?.Invoke(index);
         gameObject.SetActive(false);
     }   

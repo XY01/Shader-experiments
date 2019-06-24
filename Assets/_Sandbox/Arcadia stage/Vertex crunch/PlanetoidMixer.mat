@@ -50,9 +50,9 @@ Material:
     - _Fade: 1
     - _FadeNoiseSize: 1
     - _Float7: -0.13
-    - _TexValOffset: -1.3022805
-    - _Tiling: 0.14824599
-    - _WorldPosOffset: -0.118094124
+    - _TexValOffset: 0.21700026
+    - _Tiling: 0.08400001
+    - _WorldPosOffset: 0.43400052
     - __dirty: 0
     m_Colors:
     - _MainCol: {r: 0.8018868, g: 0.8018868, b: 0.8018868, a: 0}

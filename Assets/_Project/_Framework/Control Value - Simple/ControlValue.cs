@@ -15,9 +15,9 @@ public class ControlValue
     // Used for things like timers in shaders
     public bool _Culumlative = false;
     public float CumulativeValue { private set; get; }
-
     public float _SmoothingSpeed = 0;
-
+    public bool _Master = false;
+    public ControlValue _LinkedControlValue;
 
     OSCListener _OSCListener;
 
@@ -56,6 +56,11 @@ public class ControlValue
         if (_OSCListener.DataAvailable)
         {
             _NormalizedValue = _OSCListener.GetDataAsFloat();
+        }
+
+        if (_LinkedControlValue != null)
+        {
+            _LinkedControlValue._NormalizedValue = _NormalizedValue;
         }
     }
 }

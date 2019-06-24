@@ -11,7 +11,7 @@ Shader "NoiseClouds"
 		_Smoothnes("Smoothnes", Float) = 0
 		_Metallic("Metallic", Float) = 0
 		_TexValOffset("TexValOffset", Float) = 0
-		_Opacity("Opacity", Range( 0 , 2)) = 0
+		_Fade("Fade", Range( 0 , 2)) = 0
 		_CloudTiling("CloudTiling", Float) = 0
 		[HideInInspector] __dirty( "", Int ) = 1
 	}
@@ -49,7 +49,7 @@ Shader "NoiseClouds"
 		uniform float _TexValOffset;
 		uniform float _Metallic;
 		uniform float _Smoothnes;
-		uniform float _Opacity;
+		uniform float _Fade;
 
 
 		inline float4 TriplanarSamplingSF( sampler2D topTexMap, float3 worldPos, float3 worldNormal, float falloff, float2 tiling, float3 normalScale, float3 index )
@@ -70,17 +70,17 @@ Shader "NoiseClouds"
 			o.Normal = float3(0,0,1);
 			float3 ase_worldPos = i.worldPos;
 			float3 ase_worldNormal = WorldNormalVector( i, float3( 0, 0, 1 ) );
-			float4 triplanar115 = TriplanarSamplingSF( _CloudTexture, ase_worldPos, ase_worldNormal, 1.0, ( _CloudTiling * float2( 1,1 ) ), 1.0, 0 );
+			float4 triplanar115 = TriplanarSamplingSF( _CloudTexture, ase_worldPos, ase_worldNormal, 1.0, ( _CloudTiling * float2( 0.3,1 ) ), 1.0, 0 );
 			float4 triplanar1 = TriplanarSamplingSF( _TopTexture0, ( ase_worldPos + _WorldPosOffset ), ase_worldNormal, 1.0, _Tiling, 1.0, 0 );
-			float temp_output_26_0 = ( triplanar1.x + _TexValOffset );
-			float fmodResult18 = frac(temp_output_26_0/0.5)*0.5;
-			float smoothstepResult101 = smoothstep( 0.0 , 0.2 , fmodResult18);
-			float smoothstepResult104 = smoothstep( 0.4 , 0.5 , fmodResult18);
-			float4 temp_output_114_0 = ( triplanar115 * ( smoothstepResult101 - smoothstepResult104 ) );
-			o.Albedo = temp_output_114_0.xyz;
+			float fmodResult18 = frac(( triplanar1.x + _TexValOffset )/1.0)*1.0;
+			float smoothstepResult101 = smoothstep( 0.0 , 0.5 , fmodResult18);
+			float smoothstepResult104 = smoothstep( 0.8 , 0.9 , fmodResult18);
+			float temp_output_125_0 = saturate( ( smoothstepResult101 - smoothstepResult104 ) );
+			float3 temp_cast_0 = (( triplanar115.x * temp_output_125_0 )).xxx;
+			o.Albedo = temp_cast_0;
 			o.Metallic = _Metallic;
 			o.Smoothness = _Smoothnes;
-			o.Alpha = ( temp_output_114_0 * _Opacity ).x;
+			o.Alpha = ( temp_output_125_0 * _Fade * triplanar115.x );
 		}
 
 		ENDCG
@@ -167,43 +167,39 @@ Shader "NoiseClouds"
 }
 /*ASEBEGIN
 Version=16700
-510;247;1906;1010;-561.4261;119.0354;1;True;True
+580;1245;1906;1004;2175.51;86.28233;1.3105;True;True
 Node;AmplifyShaderEditor.CommentaryNode;99;-2225.197,36.33496;Float;False;1161.763;439.6998;Triplaner with offsets;8;77;26;1;66;10;65;76;100;;1,1,1,1;0;0
 Node;AmplifyShaderEditor.WorldPosInputsNode;65;-2175.197,170.2215;Float;False;0;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3
-Node;AmplifyShaderEditor.RangedFloatNode;76;-2166.999,86.33497;Float;False;Property;_WorldPosOffset;WorldPosOffset;7;0;Create;True;0;0;False;0;0;15.88172;0;0;0;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;76;-2166.999,86.33497;Float;False;Property;_WorldPosOffset;WorldPosOffset;5;0;Create;True;0;0;False;0;0;5.359976;0;0;0;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;10;-2160.307,339.7188;Float;False;Property;_Tiling;Tiling;3;0;Create;True;0;0;False;0;0.1;0.246;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.SimpleAddOpNode;66;-1910.059,170.802;Float;False;2;2;0;FLOAT3;0,0,0;False;1;FLOAT;0;False;1;FLOAT3;0
-Node;AmplifyShaderEditor.RangedFloatNode;10;-2160.307,339.7188;Float;False;Property;_Tiling;Tiling;3;0;Create;True;0;0;False;0;0.1;0.215262;0;0;0;1;FLOAT;0
-Node;AmplifyShaderEditor.RangedFloatNode;77;-1786.503,371.0347;Float;False;Property;_TexValOffset;TexValOffset;10;0;Create;True;0;0;False;0;0;6.587477;0;0;0;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;77;-1786.503,371.0347;Float;False;Property;_TexValOffset;TexValOffset;8;0;Create;True;0;0;False;0;0;2.679988;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.TriplanarNode;1;-1731.956,170.4905;Float;True;Spherical;World;False;Top Texture 0;_TopTexture0;white;1;Assets/AmplifyShaderEditor/Examples/Community/LowPolyWater/foam-distortion-001.png;Mid Texture 0;_MidTexture0;white;-1;None;Bot Texture 0;_BotTexture0;white;-1;None;Triplanar Sampler;False;10;0;SAMPLER2D;;False;5;FLOAT;1;False;1;SAMPLER2D;;False;6;FLOAT;0;False;2;SAMPLER2D;;False;7;FLOAT;0;False;9;FLOAT3;0,0,0;False;8;FLOAT;1;False;3;FLOAT;1;False;4;FLOAT;1;False;5;FLOAT4;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.RangedFloatNode;19;-811.7593,491.9471;Float;False;Constant;_Float2;Float 2;5;0;Create;True;0;0;False;0;0.5;0;0;0;0;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;19;-811.7593,491.9471;Float;False;Constant;_Float2;Float 2;5;0;Create;True;0;0;False;0;1;0;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.SimpleAddOpNode;26;-1297.437,167.3947;Float;True;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
-Node;AmplifyShaderEditor.Vector2Node;121;-85.88159,-117.7935;Float;False;Constant;_Vector1;Vector 1;13;0;Create;True;0;0;False;0;1,1;0,0;0;3;FLOAT2;0;FLOAT;1;FLOAT;2
-Node;AmplifyShaderEditor.RangedFloatNode;118;-177.8554,-204.014;Float;False;Property;_CloudTiling;CloudTiling;12;0;Create;True;0;0;False;0;0;0.25;0;0;0;1;FLOAT;0
-Node;AmplifyShaderEditor.RangedFloatNode;103;-94.37836,245.1192;Float;False;Constant;_Float10;Float 10;14;0;Create;True;0;0;False;0;0.2;0;0;0;0;1;FLOAT;0
-Node;AmplifyShaderEditor.SimplifiedFModOpNode;18;-475.0978,396.4842;Float;True;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;105;-94.37836,332.6193;Float;False;Constant;_Float11;Float 11;14;0;Create;True;0;0;False;0;0.8;0;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.RangedFloatNode;102;-98.37836,168.1192;Float;False;Constant;_Float7;Float 7;14;0;Create;True;0;0;False;0;0;0;0;0;0;1;FLOAT;0
-Node;AmplifyShaderEditor.RangedFloatNode;106;-92.37836,416.6194;Float;False;Constant;_Float12;Float 12;14;0;Create;True;0;0;False;0;0.5;0;0;0;0;1;FLOAT;0
-Node;AmplifyShaderEditor.RangedFloatNode;105;-96.37836,339.6193;Float;False;Constant;_Float11;Float 11;14;0;Create;True;0;0;False;0;0.4;0;0;0;0;1;FLOAT;0
-Node;AmplifyShaderEditor.SmoothstepOpNode;104;195.6218,341.1193;Float;True;3;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;1;False;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;106;-92.37836,416.6194;Float;False;Constant;_Float12;Float 12;14;0;Create;True;0;0;False;0;0.9;0;0;0;0;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;103;-94.37836,245.1192;Float;False;Constant;_Float10;Float 10;14;0;Create;True;0;0;False;0;0.5;0;0;0;0;1;FLOAT;0
+Node;AmplifyShaderEditor.SimplifiedFModOpNode;18;-468.0978,471.4842;Float;True;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;118;-177.8554,-204.014;Float;False;Property;_CloudTiling;CloudTiling;10;0;Create;True;0;0;False;0;0;0.25;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.SmoothstepOpNode;101;183.6218,111.1191;Float;True;3;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;1;False;1;FLOAT;0
+Node;AmplifyShaderEditor.SmoothstepOpNode;104;195.6218,341.1193;Float;True;3;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;1;False;1;FLOAT;0
+Node;AmplifyShaderEditor.Vector2Node;121;-85.88159,-117.7935;Float;False;Constant;_Vector1;Vector 1;13;0;Create;True;0;0;False;0;0.3,1;0,0;0;3;FLOAT2;0;FLOAT;1;FLOAT;2
+Node;AmplifyShaderEditor.SimpleSubtractOpNode;108;539.9008,225.3294;Float;True;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;124;131.1184,-181.7935;Float;False;2;2;0;FLOAT;0;False;1;FLOAT2;0,0;False;1;FLOAT2;0
+Node;AmplifyShaderEditor.RangedFloatNode;117;930.1895,640.9173;Float;False;Property;_Fade;Fade;9;0;Create;True;0;0;False;0;0;1;0;2;0;1;FLOAT;0
+Node;AmplifyShaderEditor.SaturateNode;125;857.5379,385.0187;Float;False;1;0;FLOAT;0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.TriplanarNode;115;301.3885,-240.4398;Float;True;Spherical;World;False;CloudTexture;_CloudTexture;white;0;None;Mid Texture 1;_MidTexture1;white;-1;None;Bot Texture 1;_BotTexture1;white;-1;None;Triplanar Sampler;False;10;0;SAMPLER2D;;False;5;FLOAT;1;False;1;SAMPLER2D;;False;6;FLOAT;0;False;2;SAMPLER2D;;False;7;FLOAT;0;False;9;FLOAT3;0,0,0;False;8;FLOAT;1;False;3;FLOAT2;1,1;False;4;FLOAT;1;False;5;FLOAT4;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.SimpleSubtractOpNode;108;627.9008,275.3294;Float;True;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
-Node;AmplifyShaderEditor.SimpleMultiplyOpNode;114;931.306,186.778;Float;False;2;2;0;FLOAT4;0,0,0,0;False;1;FLOAT;0;False;1;FLOAT4;0
-Node;AmplifyShaderEditor.RangedFloatNode;117;933.3893,458.5172;Float;False;Property;_Opacity;Opacity;11;0;Create;True;0;0;False;0;0;1;0;2;0;1;FLOAT;0
-Node;AmplifyShaderEditor.RangedFloatNode;109;-1696.892,506.4646;Float;False;Constant;_Float13;Float 13;14;0;Create;True;0;0;False;0;0.01;0;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.SimpleTimeNode;100;-1501.892,387.4646;Float;False;1;0;FLOAT;1;False;1;FLOAT;0
-Node;AmplifyShaderEditor.RangedFloatNode;113;-912.3249,113.9677;Float;False;Constant;_Float0;Float 0;13;0;Create;True;0;0;False;0;1;0;0;0;0;1;FLOAT;0
-Node;AmplifyShaderEditor.RangedFloatNode;110;1206.46,166.8029;Float;False;Property;_Smoothnes;Smoothnes;8;0;Create;True;0;0;False;0;0;0.6;0;0;0;1;FLOAT;0
-Node;AmplifyShaderEditor.RangedFloatNode;43;146.4861,1334.403;Float;False;Property;_Fade;Fade;4;0;Create;True;0;0;False;0;0;1;0;1;0;1;FLOAT;0
-Node;AmplifyShaderEditor.RangedFloatNode;91;1202.594,88.5304;Float;False;Property;_Metallic;Metallic;9;0;Create;True;0;0;False;0;0;0;0;0;0;1;FLOAT;0
-Node;AmplifyShaderEditor.RangedFloatNode;8;-812.5,-47.5;Float;False;Property;_Offset;Offset;2;0;Create;True;0;0;False;0;1;0;0;1;0;1;FLOAT;0
-Node;AmplifyShaderEditor.SimpleMultiplyOpNode;112;-718.8823,174.9943;Float;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
-Node;AmplifyShaderEditor.SimpleMultiplyOpNode;116;1272.69,427.3171;Float;False;2;2;0;FLOAT4;0,0,0,0;False;1;FLOAT;0;False;1;FLOAT4;0
 Node;AmplifyShaderEditor.RegisterLocalVarNode;73;378.7461,1221.908;Float;False;ManualTime;-1;True;1;0;FLOAT;0;False;1;FLOAT;0
-Node;AmplifyShaderEditor.FunctionNode;111;518.1411,1352.876;Float;False;WorldFade;-1;;5;361dea0c654d2bb4586db9164587a602;0;2;12;FLOAT;1;False;13;FLOAT;1;False;1;FLOAT;0
-Node;AmplifyShaderEditor.RangedFloatNode;44;142.4863,1417.403;Float;False;Property;_FadeNoiseSize;FadeNoiseSize;5;0;Create;True;0;0;False;0;1;1;0;5;0;1;FLOAT;0
-Node;AmplifyShaderEditor.RangedFloatNode;71;186.8943,1222.281;Float;False;Property;_ManualTime;_ManualTime;6;0;Create;True;0;0;False;0;0;39.6;0;0;0;1;FLOAT;0
+Node;AmplifyShaderEditor.SimpleMultiplyOpNode;114;1193.306,211.778;Float;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
+Node;AmplifyShaderEditor.SimpleMultiplyOpNode;116;1215.49,427.3171;Float;False;3;3;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;109;-1696.892,506.4646;Float;False;Constant;_Float13;Float 13;14;0;Create;True;0;0;False;0;0.2;0;0;0;0;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;71;186.8943,1222.281;Float;False;Property;_ManualTime;_ManualTime;4;0;Create;True;0;0;False;0;0;57.94;0;0;0;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;110;1186.46,-31.1971;Float;False;Property;_Smoothnes;Smoothnes;6;0;Create;True;0;0;False;0;0;0.6;0;0;0;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;8;-812.5,-47.5;Float;False;Property;_Offset;Offset;2;0;Create;True;0;0;False;0;1;0;0;1;0;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;91;1182.594,-109.4696;Float;False;Property;_Metallic;Metallic;7;0;Create;True;0;0;False;0;0;0;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.StandardSurfaceOutputNode;0;1587.167,6.936876;Float;False;True;6;Float;ASEMaterialInspector;0;0;Standard;NoiseClouds;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;False;False;False;False;False;False;Back;0;False;-1;0;False;-1;False;0;False;-1;0;False;-1;False;0;Transparent;0.5;True;True;0;False;Transparent;;Transparent;All;True;True;True;True;True;True;True;True;True;True;True;True;True;True;True;True;True;0;False;-1;False;0;False;-1;255;False;-1;255;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;-1;False;2;15;10;25;False;0.5;True;2;5;False;-1;10;False;-1;0;0;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;0;0,0,0,0;VertexOffset;True;False;Cylindrical;False;Relative;0;;-1;-1;-1;-1;0;False;0;0;False;-1;-1;0;False;-1;0;0;0;False;0.1;False;-1;0;False;-1;16;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;2;FLOAT3;0,0,0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT3;0,0,0;False;7;FLOAT3;0,0,0;False;8;FLOAT;0;False;9;FLOAT;0;False;10;FLOAT;0;False;13;FLOAT3;0,0,0;False;11;FLOAT3;0,0,0;False;12;FLOAT3;0,0,0;False;14;FLOAT4;0,0,0,0;False;15;FLOAT3;0,0,0;False;0
 WireConnection;66;0;65;0
 WireConnection;66;1;76;0
@@ -213,30 +209,28 @@ WireConnection;26;0;1;1
 WireConnection;26;1;77;0
 WireConnection;18;0;26;0
 WireConnection;18;1;19;0
-WireConnection;104;0;18;0
-WireConnection;104;1;105;0
-WireConnection;104;2;106;0
 WireConnection;101;0;18;0
 WireConnection;101;1;102;0
 WireConnection;101;2;103;0
-WireConnection;124;0;118;0
-WireConnection;124;1;121;0
-WireConnection;115;3;124;0
+WireConnection;104;0;18;0
+WireConnection;104;1;105;0
+WireConnection;104;2;106;0
 WireConnection;108;0;101;0
 WireConnection;108;1;104;0
-WireConnection;114;0;115;0
-WireConnection;114;1;108;0
+WireConnection;124;0;118;0
+WireConnection;124;1;121;0
+WireConnection;125;0;108;0
+WireConnection;115;3;124;0
 WireConnection;100;0;109;0
-WireConnection;112;0;26;0
-WireConnection;112;1;113;0
-WireConnection;116;0;114;0
-WireConnection;116;1;117;0
 WireConnection;73;0;71;0
-WireConnection;111;12;43;0
-WireConnection;111;13;44;0
+WireConnection;114;0;115;1
+WireConnection;114;1;125;0
+WireConnection;116;0;125;0
+WireConnection;116;1;117;0
+WireConnection;116;2;115;1
 WireConnection;0;0;114;0
 WireConnection;0;3;91;0
 WireConnection;0;4;110;0
 WireConnection;0;9;116;0
 ASEEND*/
-//CHKSM=38FBA511EB874D834438779AB04D7BE3F18A7669
+//CHKSM=68BF508D127AA1E6E76FE0FA869C91C053EAF1B4

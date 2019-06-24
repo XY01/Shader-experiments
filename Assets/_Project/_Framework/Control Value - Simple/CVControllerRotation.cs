@@ -17,6 +17,6 @@ public class CVControllerRotation : CVControllerBase
     // Update is called once per frame
     protected override void UpdateControlValueEffects()
     {
-        transform.Rotate(_ControlValues[0].Value, _ControlValues[1].Value, _ControlValues[2].Value);
+        transform.Rotate(_ControlValues[0].Value * Time.deltaTime, _ControlValues[1].Value * Time.deltaTime, _ControlValues[2].Value * Time.deltaTime);
     }
 }

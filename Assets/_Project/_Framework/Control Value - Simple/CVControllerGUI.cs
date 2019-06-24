@@ -17,9 +17,7 @@ public class CVControllerGUI : MonoBehaviour
     {
         _Controller = controller;
         _HeadingText.text = _Controller.OSCAddress;
-
-        print(controller._ControlValues.Length);
-
+        
         _SliderParents = new GameObject[_Controller._ControlValues.Length];
         _CVSliders = new CVSlider[_Controller._ControlValues.Length];
         for (int i = 0; i < _SliderParents.Length; i++)

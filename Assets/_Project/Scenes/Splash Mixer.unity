@@ -574,6 +574,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 572136156, guid: 4ff8f3fb60a0eab498de2d84f4354952, type: 3}
+      propertyPath: _ControlValues.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 572136156, guid: 4ff8f3fb60a0eab498de2d84f4354952, type: 3}
+      propertyPath: _ControlValues.Array.data[3]._Name
+      value: _Fade
+      objectReference: {fileID: 0}
+    - target: {fileID: 572136156, guid: 4ff8f3fb60a0eab498de2d84f4354952, type: 3}
+      propertyPath: _ControlValues.Array.data[3]._NormalizedValue
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 572136156, guid: 4ff8f3fb60a0eab498de2d84f4354952, type: 3}
+      propertyPath: _ControlValues.Array.data[3]._Range.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 572136156, guid: 4ff8f3fb60a0eab498de2d84f4354952, type: 3}
+      propertyPath: _ControlValues.Array.data[3]._Culumlative
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 572136156, guid: 4ff8f3fb60a0eab498de2d84f4354952, type: 3}
+      propertyPath: _ControlValues.Array.data[3]._Master
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ff8f3fb60a0eab498de2d84f4354952, type: 3}
 --- !u!4 &572136155 stripped
@@ -4050,6 +4074,30 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 572136156, guid: 4ff8f3fb60a0eab498de2d84f4354952, type: 3}
+      propertyPath: _ControlValues.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 572136156, guid: 4ff8f3fb60a0eab498de2d84f4354952, type: 3}
+      propertyPath: _ControlValues.Array.data[3]._Name
+      value: _Fade
+      objectReference: {fileID: 0}
+    - target: {fileID: 572136156, guid: 4ff8f3fb60a0eab498de2d84f4354952, type: 3}
+      propertyPath: _ControlValues.Array.data[3]._NormalizedValue
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 572136156, guid: 4ff8f3fb60a0eab498de2d84f4354952, type: 3}
+      propertyPath: _ControlValues.Array.data[3]._Range.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 572136156, guid: 4ff8f3fb60a0eab498de2d84f4354952, type: 3}
+      propertyPath: _ControlValues.Array.data[3]._Culumlative
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 572136156, guid: 4ff8f3fb60a0eab498de2d84f4354952, type: 3}
+      propertyPath: _ControlValues.Array.data[3]._Master
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ff8f3fb60a0eab498de2d84f4354952, type: 3}

@@ -36,10 +36,8 @@ public class SplashObjectBase : MonoBehaviour
             }
         }
 
-        //if (_FadeCV == null || _FadeCV._N)
-        //    print(name + "  No Fade CV found");
-
-        // _FadeCV =  new ControlValue("fade", 1, 0, 1, OSCPrefix + "/");
+        _FadeCV._NormalizedValue = 0;
+       
 
         for (int i = 0; i < CVControllers.Length; i++)
         {
@@ -63,10 +61,11 @@ public class SplashObjectBase : MonoBehaviour
     // Deactivate splash object
     public virtual void Deactivate()
     {        
-        StartCoroutine("FadeOutRoutine");
+        if(gameObject.activeSelf)
+            StartCoroutine("FadeOutRoutine");
     }
 
-    IEnumerator FadeOutRoutine()
+    protected virtual IEnumerator FadeOutRoutine()
     {
         _FadeCV._NormalizedValue = 1;
 
@@ -85,9 +84,15 @@ public class SplashObjectBase : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    IEnumerator FadeInRoutine()
+    protected virtual IEnumerator FadeInRoutine()
     {
         _FadeCV._NormalizedValue = 0;
+
+        if (_FadeCV._LinkedControlValue != null)
+        {
+            _FadeCV._LinkedControlValue._NormalizedValue = 0;
+            _FadeCV._LinkedControlValue.UpdateValue(Time.deltaTime);
+        }
 
         float timer = 0;
         float duration = .5f;

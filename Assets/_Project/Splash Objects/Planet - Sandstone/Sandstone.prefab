@@ -83,6 +83,12 @@ MonoBehaviour:
     _Culumlative: 1
     _SmoothingSpeed: 0
     _Master: 0
+  - _Name: _Fade
+    _NormalizedValue: 0.1
+    _Range: {x: 0, y: 1}
+    _Culumlative: 0
+    _SmoothingSpeed: 0
+    _Master: 1
   _SelfInit: 0
   _ControllerName: Shader
   _Mat: {fileID: 2100000, guid: f59070b365fb53e41b72b7834c6f95a5, type: 2}

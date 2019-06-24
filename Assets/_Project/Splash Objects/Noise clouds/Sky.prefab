@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6649069098020535340
 Transform:
   m_ObjectHideFlags: 0
@@ -86,7 +86,7 @@ MonoBehaviour:
   - _Name: _Fade
     _NormalizedValue: 0
     _Range: {x: 0, y: 1}
-    _Culumlative: 1
+    _Culumlative: 0
     _SmoothingSpeed: 0
     _Master: 1
   _SelfInit: 0

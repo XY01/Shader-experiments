@@ -19,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8953452050704543645
 Transform:
   m_ObjectHideFlags: 0
@@ -41,7 +41,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8953452050704543642}
-  m_Mesh: {fileID: 4300000, guid: 61a761634edccb647b73660ba4033375, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 17ff33b1b36ffcb41b63dceaffe1b11f, type: 3}
 --- !u!23 &8953452050704543647
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -97,6 +97,7 @@ MonoBehaviour:
     _Range: {x: 0, y: 0}
     _Culumlative: 0
     _SmoothingSpeed: 0
+    _Master: 0
 --- !u!114 &5322200999001360797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,37 +115,50 @@ MonoBehaviour:
     _NormalizedValue: 0.05
     _Range: {x: 1, y: 10}
     _Culumlative: 0
-    _SmoothingSpeed: 0
+    _SmoothingSpeed: 4
+    _Master: 0
   - _Name: _ManualSpeed
     _NormalizedValue: 0.1
     _Range: {x: 0.01, y: 3}
     _Culumlative: 1
     _SmoothingSpeed: 0
+    _Master: 0
   - _Name: _RingWidth
     _NormalizedValue: 0.25
     _Range: {x: 0, y: 0.3}
     _Culumlative: 0
-    _SmoothingSpeed: 0
+    _SmoothingSpeed: 4
+    _Master: 0
   - _Name: _RingStart
     _NormalizedValue: 0.5
     _Range: {x: 0, y: 1}
     _Culumlative: 0
-    _SmoothingSpeed: 0
+    _SmoothingSpeed: 4
+    _Master: 0
   - _Name: _Cutoff
     _NormalizedValue: 0.1
     _Range: {x: 0.14, y: 1}
     _Culumlative: 0
-    _SmoothingSpeed: 0
+    _SmoothingSpeed: 4
+    _Master: 0
   - _Name: _Emission
     _NormalizedValue: 0.1
     _Range: {x: 0, y: 1}
     _Culumlative: 0
     _SmoothingSpeed: 0
+    _Master: 0
   - _Name: _PeakValleyMix
     _NormalizedValue: 0.8
     _Range: {x: 0, y: 1}
     _Culumlative: 0
     _SmoothingSpeed: 0
+    _Master: 0
+  - _Name: _Fade
+    _NormalizedValue: 0
+    _Range: {x: 0, y: 1}
+    _Culumlative: 0
+    _SmoothingSpeed: 0
+    _Master: 1
   _SelfInit: 0
   _ControllerName: Brownian
   _Mat: {fileID: 2100000, guid: eedf1fce8d7bebd45b2a7c3a30a5440f, type: 2}

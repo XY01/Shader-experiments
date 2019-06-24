@@ -29,26 +29,24 @@ public class SplashMixer : MonoBehaviour
     public List<SplashObjectLayer> _Layers = new List<SplashObjectLayer>();
     
     public SplashObjectBase[] _AllSplashObjects;
-    public string[] _AllObjectNames;  
+    public Transform _SplsahObjectParent;
 
     SplashObjectBase _SplashObject;    
     CVControllerGUI _ControllerGUI;
 
     public RectTransform _CVControllerParent;
+    
 
     private void Awake()
     {
         Instance = this;
 
         // Populate objects and object names
-        _AllSplashObjects = FindObjectsOfType<SplashObjectBase>();
-        foreach (SplashObjectBase so in _AllSplashObjects)
-            so.Deactivate();
-
-        _AllObjectNames = new string[_AllSplashObjects.Length];
-        for (int i = 0; i < _AllObjectNames.Length; i++)
+        _AllSplashObjects = new SplashObjectBase[_SplsahObjectParent.childCount];
+        for (int i = 0; i < _SplsahObjectParent.childCount; i++)
         {
-            _AllObjectNames[i] = _AllSplashObjects[i].name;
+            _AllSplashObjects[i] = _SplsahObjectParent.GetChild(i).GetComponent<SplashObjectBase>();
+            _AllSplashObjects[i].Deactivate();
         }
     }
 

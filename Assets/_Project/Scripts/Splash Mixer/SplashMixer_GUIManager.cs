@@ -9,12 +9,21 @@ public class SplashMixer_GUIManager : MonoBehaviour
     
    // public RectTransform _LayerParent;
     public UISelectionList _SelectionList;
-   
+
+    public RectTransform _LightingGUIParent;
+    public CVControllerBase _LightingController;
 
     private void Awake()
     {
         Instance = this;
         _SelectionList.onItemSelected += SelectionList_onItemSelected;
+
+
+        // LIGHTING TODO Move
+        _LightingController.Init("/lighting");
+        CVControllerGUI newCtrlrGUI = SRResources.Panel_CV_Controllers.Instantiate(_LightingGUIParent).GetComponent<CVControllerGUI>();
+        //newCtrlrGUI.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 300);
+        newCtrlrGUI.Initialize(_LightingController);
     }
 
     ButtonData[] GetSplashObjectButtonData()

@@ -27,7 +27,7 @@ public class SplashObject_GUI : MonoBehaviour
         // Create GUI for each of the splash object CV controllers
         for (int i = 0; i < _SplashObject.CVControllers.Length; i++)
         {
-           CVControllerGUI newCtrlrGUI = SRResources.Panel_CV_Controllers.Instantiate(_CVControllersParent).GetComponent<CVControllerGUI>();
+            CVControllerGUI newCtrlrGUI = SRResources.Panel_CV_Controllers.Instantiate(_CVControllersParent).GetComponent<CVControllerGUI>();
             newCtrlrGUI.Initialize(_SplashObject.CVControllers[i]);
         }
     }

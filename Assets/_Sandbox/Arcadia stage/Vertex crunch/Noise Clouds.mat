@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PlanetoidMixer
-  m_Shader: {fileID: 4800000, guid: 75088668b2ee7a846976f2de1f41063e, type: 3}
+  m_Name: Noise Clouds
+  m_Shader: {fileID: 4800000, guid: 00767c22ec8b4df419fa9a1676f8a306, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -21,10 +21,14 @@ Material:
     m_TexEnvs:
     - _Albedo0:
         m_Texture: {fileID: 2800000, guid: b297077dae62c1944ba14cad801cddf5, type: 3}
-        m_Scale: {x: 2, y: 2}
+        m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Albedo1:
         m_Texture: {fileID: 2800000, guid: ddce39766e2a9ce48a69c914a4a29487, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _CloudTexture:
+        m_Texture: {fileID: 2800000, guid: e28dc97a9541e3642a48c0e3886688c5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normal0:
@@ -37,22 +41,29 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _TopTexture0:
         m_Texture: {fileID: 2800000, guid: cd460ee4ac5c1e746b7a734cc7cc64dd, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Scale: {x: 0.1, y: 0.1}
+        m_Offset: {x: 0, y: 0}
+    - _TopTexture1:
+        m_Texture: {fileID: 2800000, guid: cd460ee4ac5c1e746b7a734cc7cc64dd, type: 3}
+        m_Scale: {x: 0.1, y: 0.1}
         m_Offset: {x: 0, y: 0}
     - _texcoord:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _CloudTiling: 0.25
     - _Cutoff: 0.5
-    - _EMissivescaler: 400
+    - _EMissivescaler: 2
     - _EdgeLength: 15
     - _Fade: 1
     - _FadeNoiseSize: 1
-    - _Float7: -0.13
-    - _TexValOffset: -1.3022805
-    - _Tiling: 0.14824599
-    - _WorldPosOffset: -0.118094124
+    - _Float7: 0.75
+    - _Metallic: 0
+    - _Opacity: 1.67
+    - _Smoothnes: 0.6
+    - _TexValOffset: 10.457258
+    - _Tiling: 0.21526197
+    - _WorldPosOffset: 24.71042
     - __dirty: 0
-    m_Colors:
-    - _MainCol: {r: 0.8018868, g: 0.8018868, b: 0.8018868, a: 0}
+    m_Colors: []

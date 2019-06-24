@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class SplashMixer_GUIManager : MonoBehaviour
 {
     public static SplashMixer_GUIManager Instance;
+    
    // public RectTransform _LayerParent;
     public UISelectionList _SelectionList;
    
@@ -16,7 +17,24 @@ public class SplashMixer_GUIManager : MonoBehaviour
         _SelectionList.onItemSelected += SelectionList_onItemSelected;
     }
 
-   
+    ButtonData[] GetSplashObjectButtonData()
+    {
+        ButtonData[] splashObjectButtonData = new ButtonData[SplashMixer.Instance._AllSplashObjects.Length];
+
+        for (int i = 0; i < splashObjectButtonData.Length; i++)
+        {
+            int index = i;
+
+            splashObjectButtonData[i] = new ButtonData
+            (
+                SplashMixer.Instance._AllSplashObjects[i].name,
+                index,
+                !SplashMixer.Instance._AllSplashObjects[i].gameObject.activeSelf
+            );
+        }
+
+        return splashObjectButtonData;
+    }
 
     public SplashObject_GUI CreateSplashObjectGUI(SplashObjectBase so, RectTransform parent)
     {
@@ -28,7 +46,7 @@ public class SplashMixer_GUIManager : MonoBehaviour
 
     public void OpenObjectSelection()
     {
-        _SelectionList.Initialize(SplashMixer.Instance._AllObjectNames);
+        _SelectionList.Initialize(GetSplashObjectButtonData());
     }
 
     private void SelectionList_onItemSelected(int index)

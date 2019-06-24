@@ -4,12 +4,9 @@ using UnityEngine;
 
 public class SplashObjectLayer : MonoBehaviour
 {
-    SplashObjectBase _SplashObject;
-  
+    SplashObjectBase _SplashObject;  
     public bool _Draw = false;
-
     public SplashObjectLayerGUI _GUI;
-
 
     private void Start()
     {

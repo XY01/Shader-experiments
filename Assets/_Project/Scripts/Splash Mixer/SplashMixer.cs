@@ -29,7 +29,7 @@ public class SplashMixer : MonoBehaviour
     public List<SplashObjectLayer> _Layers = new List<SplashObjectLayer>();
     
     public SplashObjectBase[] _AllSplashObjects;
-    public string[] _AllObjectNames;
+    public string[] _AllObjectNames;  
 
     SplashObjectBase _SplashObject;    
     CVControllerGUI _ControllerGUI;
@@ -58,7 +58,13 @@ public class SplashMixer : MonoBehaviour
         _Layers = new List<SplashObjectLayer>(GetComponentsInChildren<SplashObjectLayer>());
         ActiveLayer = _Layers[0];
     }
-    
+
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Escape))
+            Application.Quit();
+    }
+
     public void SelectLayerAndOpenSelection(SplashObjectLayer layer)
     {
         ActiveLayer = layer;

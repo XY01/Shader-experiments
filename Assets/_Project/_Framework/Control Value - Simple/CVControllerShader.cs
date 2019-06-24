@@ -15,8 +15,6 @@ public class CVControllerShader : CVControllerBase
                 _Mat.SetFloat(_ControlValues[i]._Name, _ControlValues[i].CumulativeValue);
             else
                 _Mat.SetFloat(_ControlValues[i]._Name, _ControlValues[i].Value);
-           
-               
         }
 
         // Set manual time in the shader

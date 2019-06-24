@@ -12,13 +12,14 @@ GameObject:
   - component: {fileID: 7788275301642362868}
   - component: {fileID: 7788275301642362867}
   - component: {fileID: 943307431396325250}
+  - component: {fileID: 7788275301642362768}
   m_Layer: 0
   m_Name: Brownian Lines
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7788275301642362865
 Transform:
   m_ObjectHideFlags: 0
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 7788275301642362767}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 5.54, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -40,7 +41,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7788275301642362767}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4300000, guid: 61a761634edccb647b73660ba4033375, type: 3}
 --- !u!23 &7788275301642362867
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -90,3 +91,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 008a0390ed1eb0349b33147fee246958, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _FadeCV:
+    _Name: 
+    _NormalizedValue: 0
+    _Range: {x: 0, y: 0}
+    _Culumlative: 0
+    _SmoothingSpeed: 0
+--- !u!114 &7788275301642362768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7788275301642362767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68487ac69ac07124e960e873d52c93e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ControlValues:
+  - _Name: _Freq
+    _NormalizedValue: 0.1
+    _Range: {x: 1, y: 20}
+    _Culumlative: 0
+    _SmoothingSpeed: 0
+  - _Name: _ManualSpeed
+    _NormalizedValue: 0.1
+    _Range: {x: 0.01, y: 3}
+    _Culumlative: 1
+    _SmoothingSpeed: 0
+  - _Name: _RingWidth
+    _NormalizedValue: 0.25
+    _Range: {x: 0, y: 0.1}
+    _Culumlative: 0
+    _SmoothingSpeed: 0
+  - _Name: _RingStart
+    _NormalizedValue: 0.5
+    _Range: {x: 0.2, y: 0.4}
+    _Culumlative: 0
+    _SmoothingSpeed: 0
+  - _Name: _Emission
+    _NormalizedValue: 0.1
+    _Range: {x: 0, y: 1}
+    _Culumlative: 0
+    _SmoothingSpeed: 0
+  _SelfInit: 0
+  _ControllerName: Lines
+  _Mat: {fileID: 2100000, guid: d25cab0e8dab85b42bc2b7201a459f35, type: 2}

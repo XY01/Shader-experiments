@@ -25,7 +25,7 @@ Material:
     - _EdgeLength: 15
     - _Emission: 0.1
     - _EmitStr: 3.63
-    - _Fade: 1
+    - _Fade: 0.06714189
     - _FadeNoiseSize: 1
     - _Float6: 0.2
     - _Freq: 1.4499993

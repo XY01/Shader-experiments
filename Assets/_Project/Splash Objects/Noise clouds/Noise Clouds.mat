@@ -56,15 +56,15 @@ Material:
     - _Cutoff: 0.5
     - _EMissivescaler: 2
     - _EdgeLength: 15
-    - _Fade: 0.059292316
+    - _Fade: 0.025049508
     - _FadeNoiseSize: 1
     - _Float0: 2
     - _Float7: 0.75
     - _Metallic: 0
     - _Opacity: 2
     - _Smoothnes: 0.6
-    - _TexValOffset: 1.2370018
+    - _TexValOffset: 0.4529977
     - _Tiling: 0.246
-    - _WorldPosOffset: 2.4740036
+    - _WorldPosOffset: 0.9059954
     - __dirty: 0
     m_Colors: []

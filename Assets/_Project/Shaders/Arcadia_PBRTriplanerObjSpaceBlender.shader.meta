@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 287d94a3fdb1e344f89d44ace79960da
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures:
+  - _Normal: {fileID: 2800008, guid: 9f41c92017adde44c8c4e83fe96372ed, type: 3}
+  - _TopTexture2: {fileID: 2800008, guid: 9f41c92017adde44c8c4e83fe96372ed, type: 3}
+  - _Mask: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
+  - _Albedo: {fileID: 2800008, guid: 9f41c92017adde44c8c4e83fe96372ed, type: 3}
+  - _TopTexture1: {fileID: 2800008, guid: 9f41c92017adde44c8c4e83fe96372ed, type: 3}
+  - _Metallic: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
+  - _TopTexture4: {fileID: 2800008, guid: 9f41c92017adde44c8c4e83fe96372ed, type: 3}
+  - _Rough: {fileID: 2800008, guid: 9f41c92017adde44c8c4e83fe96372ed, type: 3}
+  - _TopTexture0: {fileID: 2800008, guid: 9f41c92017adde44c8c4e83fe96372ed, type: 3}
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

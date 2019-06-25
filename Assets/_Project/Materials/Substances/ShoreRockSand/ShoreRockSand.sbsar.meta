@@ -8,6 +8,7 @@ ScriptedImporter:
     2800004: MainComposition - metallic
     2800006: MainComposition - height
     2800008: MainComposition - ambientOcclusion
+    2800010: MainComposition - roughness
     11400000: sbsar
     11400002: graph0
   externalObjects: {}
@@ -20,16 +21,19 @@ ScriptedImporter:
   - graphLabel: MainComposition
     prototypeName: MainComposition
     graphDescIndex: 0
-    generateAllOutputs: 0
-    generateMipMaps: 1
+    generateAllOutputs: 1
+    generateMipMaps: 0
     preset: " <sbspreset pkgurl=\"pkg://MainComposition\" label=\"\" >\n  <presetinput
-      identifier=\"Water_sediment_Density\" uid=\"2181126052\" type=\"0\" value=\"4.21\"
-      />\n </sbspreset>\n"
+      identifier=\"$outputsize\" uid=\"4043847072\" type=\"8\" value=\"10,10\" />\n
+      \ <presetinput identifier=\"$randomseed\" uid=\"2793022450\" type=\"4\" value=\"873\"
+      />\n  <presetinput identifier=\"Water_sediment_Density\" uid=\"2181126052\"
+      type=\"0\" value=\"4.21\" />\n </sbspreset>\n"
     shaderName: Standard
-    outputNames: baseColor,normal,metallic,height,ambientOcclusion
+    outputNames: 
     materialProperties:
       shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
       shaderKeywords: _MAINTEX _METALLICGLOSSMAP _NORMALMAP _OCCLUSIONMAP _PARALLAXMAP
+        _ROUGHNESSMAP
       lightmapFlags: 4
       texEnvs:
       - name: _BumpMap
@@ -161,12 +165,13 @@ ScriptedImporter:
     targetSettingList:
     - label: 
       bLockRatio: 1
-      textureWidth: 256
-      textureHeight: 256
+      textureWidth: 1024
+      textureHeight: 1024
       textureFormat: 0
       bGenerateOnLoad: 1
     material: {fileID: 2100000, guid: dd4337fd38d9e3a4290deb3b00cb16ee, type: 3}
     generatedTextures:
+    - {fileID: 2800010, guid: dd4337fd38d9e3a4290deb3b00cb16ee, type: 3}
     - {fileID: 2800000, guid: dd4337fd38d9e3a4290deb3b00cb16ee, type: 3}
     - {fileID: 2800002, guid: dd4337fd38d9e3a4290deb3b00cb16ee, type: 3}
     - {fileID: 2800004, guid: dd4337fd38d9e3a4290deb3b00cb16ee, type: 3}

@@ -73,7 +73,7 @@ namespace Klak.Ndi
 
             if (_frameQueue.Count > 3)
             {
-                Debug.LogWarning(name +   "   Too many GPU readback requests.");
+                //Debug.LogWarning(name +   "   Too many GPU readback requests.");
                 return;
             }
 

@@ -30,8 +30,8 @@ Material:
     m_Floats:
     - _Contrastcontrol: 0.72
     - _Cutoff: 0.5
-    - _Metallic: 0.86
-    - _Smoothness: 0.92
+    - _Metallic: 0.88
+    - _Smoothness: 0.68
     - _StepCutoff: 1
     - _VertCount: 6187
     - _VertOffset_Max: 0
@@ -39,4 +39,4 @@ Material:
     - __dirty: 0
     m_Colors:
     - _EmissionCol: {r: 0, g: 0, b: 0, a: 0}
-    - _MainCol: {r: 0.20754719, g: 0.2026522, b: 0.2026522, a: 0}
+    - _MainCol: {r: 0.23584908, g: 0.23584908, b: 0.23584908, a: 0}

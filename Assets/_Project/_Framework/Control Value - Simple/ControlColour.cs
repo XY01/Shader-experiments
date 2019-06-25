@@ -48,7 +48,7 @@ public class ControlColour
             _Col = _HSBCol.ToColor();
         }
 
-        Debug.Log(_Name + " col " + _Col.ToString() + "  " + _HSBCol.ToColor().ToString());
+        //Debug.Log(_Name + " col " + _Col.ToString() + "  " + _HSBCol.ToColor().ToString());
     }
 
     public void SetColour(HSBColor col)

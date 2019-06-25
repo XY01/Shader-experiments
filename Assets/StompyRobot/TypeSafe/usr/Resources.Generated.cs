@@ -1042,12 +1042,19 @@ public sealed class SRResources {
             }
         }
         
+        public static global::TypeSafe.PrefabResource Button_Colour_Select {
+            get {
+                return ((global::TypeSafe.PrefabResource)(@__ts_internal_resources[5]));
+            }
+        }
+        
         private static global::System.Collections.Generic.IList<global::TypeSafe.IResource> @__ts_internal_resources = new global::System.Collections.ObjectModel.ReadOnlyCollection<global::TypeSafe.IResource>(new global::TypeSafe.IResource[] {
                     new global::TypeSafe.PrefabResource("Button", "UI/Button"),
                     new global::TypeSafe.PrefabResource("Text Slider", "UI/Text Slider"),
                     new global::TypeSafe.PrefabResource("Panel - Splash Layer 0", "UI/Panel - Splash Layer 0"),
                     new global::TypeSafe.PrefabResource("Window - Selection List", "UI/Window - Selection List"),
-                    new global::TypeSafe.PrefabResource("Window", "UI/Window")});
+                    new global::TypeSafe.PrefabResource("Window", "UI/Window"),
+                    new global::TypeSafe.PrefabResource("Button Colour Select", "UI/Button Colour Select")});
         
         /// <summary>
         /// Return a list of all resources in this folder.

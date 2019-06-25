@@ -12,6 +12,9 @@ public class CVControllerGUI : MonoBehaviour
     CVControllerBase _Controller;
     GameObject[] _SliderParents;
     CVSlider[] _CVSliders;
+    Button[] _CVColButtons;
+
+    int _SelectedColControllerIndex;
 
     public void Initialize(CVControllerBase controller)
     {
@@ -29,5 +32,28 @@ public class CVControllerGUI : MonoBehaviour
             _CVSliders[i] = _SliderParents[i].GetComponentInChildren<CVSlider>();
             _CVSliders[i].Init(_Controller._ControlValues[index]);//.onValueChanged.AddListener((float f) => _Controller._ControlValues[index]._NormalizedValue = f);
         }
+
+        _CVColButtons = new Button[_Controller._ControlColours.Length];
+        for (int i = 0; i < _CVColButtons.Length; i++)
+        {
+            int index = i;
+            _CVColButtons[i] = SRResources.UI.Button_Colour_Select.Instantiate(transform).GetComponent<Button>();
+            _CVColButtons[i].GetComponentInChildren<Text>().text = _Controller._ControlColours[i]._Name;
+            _CVColButtons[i].GetComponentInChildren<Image>().color = _Controller._ControlColours[i]._Col;
+            _CVColButtons[i].onClick.AddListener(() => OpenColourPickerAndAssignControlCol(index));
+        }
     }
+
+    void OpenColourPickerAndAssignControlCol(int index)
+    {
+        _SelectedColControllerIndex = index;
+        ColourPicker.Instance.Open(_Controller._ControlColours[index]._Col, SetControlAndButtonCol);// _Controller._ControlColours[index].SetColour);
+    }
+
+    void SetControlAndButtonCol(HSBColor col)
+    {
+        _CVColButtons[_SelectedColControllerIndex].GetComponentInChildren<Image>().color = col.ToColor();
+        _Controller._ControlColours[_SelectedColControllerIndex].SetColour(col);
+    }
+
 }

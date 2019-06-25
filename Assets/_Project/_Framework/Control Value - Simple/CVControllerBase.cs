@@ -9,6 +9,7 @@ public class CVControllerBase : MonoBehaviour
 {
     public string OSCAddress { get; private set; }
     public ControlValue[] _ControlValues;
+    public ControlColour[] _ControlColours;
 
     List<ControlValue> _CVList = new List<ControlValue>();
 
@@ -37,6 +38,9 @@ public class CVControllerBase : MonoBehaviour
         // Init all control values
         for (int i = 0; i < _ControlValues.Length; i++)
             _ControlValues[i].Init(OSCAddress);
+
+        for (int i = 0; i < _ControlColours.Length; i++)
+            _ControlColours[i].Init(OSCAddress);
     }
 
     void FixedUpdate()
@@ -47,6 +51,9 @@ public class CVControllerBase : MonoBehaviour
         // Update control values
         for (int i = 0; i < _ControlValues.Length; i++)
             _ControlValues[i].UpdateValue(Time.fixedDeltaTime);
+
+        for (int i = 0; i < _ControlColours.Length; i++)
+            _ControlColours[i].UpdateValue(Time.fixedDeltaTime);
 
         UpdateControlValueEffects();
     }

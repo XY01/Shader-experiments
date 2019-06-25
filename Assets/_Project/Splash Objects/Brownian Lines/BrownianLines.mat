@@ -23,13 +23,13 @@ Material:
     - _Cutoff: 0.55
     - _Displacement: -0.3
     - _EdgeLength: 15
-    - _Emission: 0.1
+    - _Emission: 0
     - _EmitStr: 3.63
-    - _Fade: 0.056426167
+    - _Fade: 1
     - _FadeNoiseSize: 1.3
     - _Float6: 0.2
     - _Freq: 2.9
-    - _ManualSpeed: 1.5882633
+    - _ManualSpeed: 18.477777
     - _NormalOffset: -0.3
     - _Offset: 0
     - _PeakValleyMix: 0.8
@@ -46,7 +46,7 @@ Material:
     - _Color0: {r: 0.8901961, g: 0.08627453, b: 0.13495138, a: 0}
     - _EmitCol: {r: 0.2683339, g: 0.3286984, b: 0.8490566, a: 0}
     - _PeakCol: {r: 0.608393, g: 0.608393, b: 0.608393, a: 0}
-    - _RingCol: {r: 0.9811321, g: 0.9811321, b: 0.9811321, a: 0}
+    - _RingCol: {r: 1, g: 0, b: 0, a: 1}
     - _TipCol: {r: 0.8901961, g: 0.08627453, b: 0.13495138, a: 0}
     - _TipEmitCol: {r: 0.095132776, g: 0.087814875, b: 0.8891256, a: 0}
     - _TopoRingCol: {r: 0.608393, g: 0.608393, b: 0.608393, a: 0}

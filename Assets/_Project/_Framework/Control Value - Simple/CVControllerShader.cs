@@ -19,14 +19,18 @@ public class CVControllerShader : CVControllerBase
 
     // Update is called once per frame
     protected override void UpdateControlValueEffects()
-    {
-       
+    {       
         for (int i = 0; i < _ControlValues.Length; i++)
         {
             if(_ControlValues[i]._Culumlative)
                 _Mat.SetFloat(_ControlValues[i]._Name, _ControlValues[i].CumulativeValue);
             else
                 _Mat.SetFloat(_ControlValues[i]._Name, _ControlValues[i].Value);
+        }
+
+        for (int i = 0; i < _ControlColours.Length; i++)
+        {
+            _Mat.SetColor(_ControlColours[i]._Name, _ControlColours[i]._Col);
         }
 
         // Set manual time in the shader

@@ -33,6 +33,9 @@ namespace EXPToolkit
         public delegate void SetBPMHandler(float bpm);
         public static event SetBPMHandler onSetBPM;
 
+        public AnimationCurve _BeatCurve;
+        public float _CurvedBeatNorm = 0;
+
         public List<float> m_BPMTaps;
         public float m_BPM = 80;
         public float BPM
@@ -48,6 +51,8 @@ namespace EXPToolkit
         public float m_ElapsedTime;
         public float m_AverageTimeBetweenBeats;
         public int m_MaxBPM = 200;
+
+        float _Timer = 0;
 
         public bool m_SendOnBeat = true;
 
@@ -119,10 +124,18 @@ namespace EXPToolkit
                     if (onBeat != null && m_SendOnBeat)
                     {
                         onBeat(m_CurrentBeatIndex);
-                    }
+                    }                  
                 }
+
+                _Timer += Time.deltaTime;
+                float norm = (_Timer % m_AverageTimeBetweenBeats)/m_AverageTimeBetweenBeats;
+                //print(norm);
+                _CurvedBeatNorm = _BeatCurve.Evaluate(norm);
             }
         }
+
+      
+
 
         public void ToggleSendOnBeat()
         {
@@ -139,6 +152,7 @@ namespace EXPToolkit
         void AddFirstBeat()
         {
             m_SetFirst = true;
+            _Timer = 0;
             AddBeat();
             m_SetFirst = false;
         }
@@ -192,6 +206,11 @@ namespace EXPToolkit
             m_BarCount = 0;
 
             if (onSetBPM != null) onSetBPM(m_BPM);
+        }
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.DrawSphere(Vector3.one * 3, _CurvedBeatNorm);
         }
     }
 }

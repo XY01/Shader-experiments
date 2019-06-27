@@ -47,8 +47,11 @@ public class ControlValue
 
         if (_DataRacketType != DataInType.None)
         {
-           
-            _NormalizedValue = DataRacketIn.Instance.GetData(_DataRacketType);
+            if (_DataRacketType == DataInType.Beat)
+                _NormalizedValue = EXPToolkit.BPMCounter.Instance._CurvedBeatNorm;
+            else
+                _NormalizedValue = DataRacketIn.Instance.GetData(_DataRacketType);
+
             //Debug.Log("Here   " + _NormalizedValue);
         }
         

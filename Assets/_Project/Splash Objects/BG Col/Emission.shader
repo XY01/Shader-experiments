@@ -9,6 +9,7 @@ Shader "Arcadia/Emission"
 		_Fade("Fade", Range( 0 , 1)) = 1
 		_Smooth("Smooth", Range( 0 , 1)) = 0
 		_Metallic("Metallic", Range( 0 , 1)) = 0
+		_EmitScaler("EmitScaler", Float) = 1
 		[HideInInspector] __dirty( "", Int ) = 1
 	}
 
@@ -24,6 +25,7 @@ Shader "Arcadia/Emission"
 			float3 worldPos;
 		};
 
+		uniform float _EmitScaler;
 		uniform float4 _EmitCol;
 		uniform float _Fade;
 		uniform float _Metallic;
@@ -91,7 +93,7 @@ Shader "Arcadia/Emission"
 			float simplePerlin3D5_g5 = snoise( ( 1.0 * ( ase_worldPos * float3(0.2,8,0.2) ) ) );
 			float temp_output_6_0_g5 = ( (-1.0 + (_Fade - 0.0) * (2.0 - -1.0) / (1.0 - 0.0)) + simplePerlin3D5_g5 );
 			float smoothstepResult24_g5 = smoothstep( 0.5 , 0.95 , temp_output_6_0_g5);
-			o.Emission = ( _EmitCol + ( 1.0 - smoothstepResult24_g5 ) ).rgb;
+			o.Emission = ( ( _EmitScaler * _EmitCol ) + ( 1.0 - smoothstepResult24_g5 ) ).rgb;
 			o.Metallic = _Metallic;
 			o.Smoothness = _Smooth;
 			o.Alpha = 1;
@@ -105,17 +107,21 @@ Shader "Arcadia/Emission"
 }
 /*ASEBEGIN
 Version=16700
-7;1;1453;1016;1042.104;150.2062;1;True;True
+7;11;1453;1040;1358.104;356.2062;1;True;True
 Node;AmplifyShaderEditor.RangedFloatNode;3;-885.6234,312.2825;Float;False;Property;_Fade;Fade;2;0;Create;True;0;0;False;0;1;1;0;1;0;1;FLOAT;0
+Node;AmplifyShaderEditor.ColorNode;2;-897.5,23.5;Float;False;Property;_EmitCol;EmitCol;1;0;Create;True;0;0;False;0;0,0.03999734,1,0;0.1465225,0,0.6693629,1;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.RangedFloatNode;9;-897.104,-78.20621;Float;False;Property;_EmitScaler;EmitScaler;5;0;Create;True;0;0;False;0;1;1;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.FunctionNode;4;-602.1401,313.2162;Float;False;WorldFade;-1;;5;361dea0c654d2bb4586db9164587a602;0;1;12;FLOAT;1;False;2;FLOAT;26;FLOAT;0
-Node;AmplifyShaderEditor.ColorNode;2;-541.5,27.5;Float;False;Property;_EmitCol;EmitCol;1;0;Create;True;0;0;False;0;0,0.03999734,1,0;0,0.03999734,1,0;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.SimpleAddOpNode;5;-310.1035,33.79379;Float;False;2;2;0;COLOR;0,0,0,0;False;1;FLOAT;0;False;1;COLOR;0
+Node;AmplifyShaderEditor.SimpleMultiplyOpNode;8;-602.104,-48.20621;Float;False;2;2;0;FLOAT;0;False;1;COLOR;0,0,0,0;False;1;COLOR;0
 Node;AmplifyShaderEditor.RangedFloatNode;1;-170.5,-27.5;Float;False;Constant;_Float0;Float 0;0;0;Create;True;0;0;False;0;1;0;0;0;0;1;FLOAT;0
-Node;AmplifyShaderEditor.RangedFloatNode;7;-305.104,134.7938;Float;False;Property;_Metallic;Metallic;4;0;Create;True;0;0;False;0;0;0.68;0;1;0;1;FLOAT;0
-Node;AmplifyShaderEditor.RangedFloatNode;6;-303.104,206.7938;Float;False;Property;_Smooth;Smooth;3;0;Create;True;0;0;False;0;0;0.83;0;1;0;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;7;-305.104,134.7938;Float;False;Property;_Metallic;Metallic;4;0;Create;True;0;0;False;0;0;0;0;1;0;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;6;-303.104,206.7938;Float;False;Property;_Smooth;Smooth;3;0;Create;True;0;0;False;0;0;0.68;0;1;0;1;FLOAT;0
+Node;AmplifyShaderEditor.SimpleAddOpNode;5;-353.1035,34.79379;Float;False;2;2;0;COLOR;0,0,0,0;False;1;FLOAT;0;False;1;COLOR;0
 Node;AmplifyShaderEditor.StandardSurfaceOutputNode;0;0,0;Float;False;True;2;Float;ASEMaterialInspector;0;0;Standard;Arcadia/Emission;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;Back;0;False;-1;0;False;-1;False;0;False;-1;0;False;-1;False;0;Custom;0.5;True;True;0;True;TransparentCutout;;Geometry;All;True;True;True;True;True;True;True;True;True;True;True;True;True;True;True;True;True;0;False;-1;False;0;False;-1;255;False;-1;255;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;-1;False;2;15;10;25;False;0.5;True;0;0;False;-1;0;False;-1;0;0;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;0;0,0,0,0;VertexOffset;True;False;Cylindrical;False;Relative;0;;0;-1;-1;-1;0;False;0;0;False;-1;-1;0;False;-1;0;0;0;False;0.1;False;-1;0;False;-1;16;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;2;FLOAT3;0,0,0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT3;0,0,0;False;7;FLOAT3;0,0,0;False;8;FLOAT;0;False;9;FLOAT;0;False;10;FLOAT;0;False;13;FLOAT3;0,0,0;False;11;FLOAT3;0,0,0;False;12;FLOAT3;0,0,0;False;14;FLOAT4;0,0,0,0;False;15;FLOAT3;0,0,0;False;0
 WireConnection;4;12;3;0
-WireConnection;5;0;2;0
+WireConnection;8;0;9;0
+WireConnection;8;1;2;0
+WireConnection;5;0;8;0
 WireConnection;5;1;4;26
 WireConnection;0;0;1;0
 WireConnection;0;2;5;0
@@ -123,4 +129,4 @@ WireConnection;0;3;7;0
 WireConnection;0;4;6;0
 WireConnection;0;10;4;0
 ASEEND*/
-//CHKSM=814E854E7C1DB3A476D5EC164C2A5BD10E3E3C7A
+//CHKSM=84382BC494ED48089F88104C7D8C2E051AC76D09

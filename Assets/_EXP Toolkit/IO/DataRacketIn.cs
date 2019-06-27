@@ -203,4 +203,5 @@ public enum DataInType
     DR_AttackA,
     DR_AttackB,
     DR_AttackC,
+    Beat,
 }

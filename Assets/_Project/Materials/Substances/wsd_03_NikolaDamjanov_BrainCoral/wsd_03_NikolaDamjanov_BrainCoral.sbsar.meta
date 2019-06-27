@@ -22,12 +22,15 @@ ScriptedImporter:
     graphDescIndex: 0
     generateAllOutputs: 0
     generateMipMaps: 1
-    preset: " <sbspreset pkgurl=\"pkg://CoralBrain\" label=\"\" >\n </sbspreset>\n"
+    preset: " <sbspreset pkgurl=\"pkg://CoralBrain\" label=\"\" >\n  <presetinput
+      identifier=\"$outputsize\" uid=\"3234300219\" type=\"8\" value=\"10,10\" />\n
+      </sbspreset>\n"
     shaderName: Standard
     outputNames: baseColor,normal,metallic,ambientOcclusion,height
     materialProperties:
       shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
       shaderKeywords: _MAINTEX _METALLICGLOSSMAP _NORMALMAP _OCCLUSIONMAP _PARALLAXMAP
+        _ROUGHNESSMAP
       lightmapFlags: 4
       texEnvs:
       - name: _BumpMap
@@ -159,8 +162,8 @@ ScriptedImporter:
     targetSettingList:
     - label: 
       bLockRatio: 1
-      textureWidth: 256
-      textureHeight: 256
+      textureWidth: 1024
+      textureHeight: 1024
       textureFormat: 0
       bGenerateOnLoad: 1
     material: {fileID: 2100000, guid: e2316ff5995eaae48a830cdb100816c3, type: 3}

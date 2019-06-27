@@ -8,6 +8,10 @@ ScriptedImporter:
     2800004: Painted Barrel - metallic
     2800006: Painted Barrel - ambientOcclusion
     2800008: Painted Barrel - height
+    2800010: Painted Barrel - glossiness
+    2800012: Painted Barrel - diffuse
+    2800014: Painted Barrel - specular
+    2800016: Painted Barrel - roughness
     11400000: sbsar
     11400002: graph0
   externalObjects: {}
@@ -20,14 +24,18 @@ ScriptedImporter:
   - graphLabel: Painted Barrel
     prototypeName: Painted Barrel
     graphDescIndex: 0
-    generateAllOutputs: 0
-    generateMipMaps: 1
-    preset: " <sbspreset pkgurl=\"pkg://metal_painted_barrel\" label=\"\" >\n </sbspreset>\n"
+    generateAllOutputs: 1
+    generateMipMaps: 0
+    preset: " <sbspreset pkgurl=\"pkg://metal_painted_barrel\" label=\"\" >\n  <presetinput
+      identifier=\"$outputsize\" uid=\"2647207648\" type=\"8\" value=\"10,10\" />\n
+      \ <presetinput identifier=\"$randomseed\" uid=\"3401267378\" type=\"4\" value=\"5353\"
+      />\n </sbspreset>\n"
     shaderName: Standard
-    outputNames: baseColor,normal,metallic,ambientOcclusion,height
+    outputNames: 
     materialProperties:
       shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-      shaderKeywords: _MAINTEX _METALLICGLOSSMAP _NORMALMAP _OCCLUSIONMAP _PARALLAXMAP
+      shaderKeywords: _GLOSSINESSMAP _MAINTEX _METALLICGLOSSMAP _NORMALMAP _OCCLUSIONMAP
+        _OTHERTEX _PARALLAXMAP _ROUGHNESSMAP _SPECGLOSSMAP
       lightmapFlags: 4
       texEnvs:
       - name: _BumpMap
@@ -183,14 +191,18 @@ ScriptedImporter:
     targetSettingList:
     - label: 
       bLockRatio: 1
-      textureWidth: 256
-      textureHeight: 256
+      textureWidth: 1024
+      textureHeight: 1024
       textureFormat: 0
       bGenerateOnLoad: 1
     material: {fileID: 2100000, guid: fa61bca29bc3bef46945c8eccc3f8cad, type: 3}
     generatedTextures:
+    - {fileID: 2800010, guid: fa61bca29bc3bef46945c8eccc3f8cad, type: 3}
+    - {fileID: 2800012, guid: fa61bca29bc3bef46945c8eccc3f8cad, type: 3}
     - {fileID: 2800000, guid: fa61bca29bc3bef46945c8eccc3f8cad, type: 3}
     - {fileID: 2800002, guid: fa61bca29bc3bef46945c8eccc3f8cad, type: 3}
+    - {fileID: 2800014, guid: fa61bca29bc3bef46945c8eccc3f8cad, type: 3}
+    - {fileID: 2800016, guid: fa61bca29bc3bef46945c8eccc3f8cad, type: 3}
     - {fileID: 2800004, guid: fa61bca29bc3bef46945c8eccc3f8cad, type: 3}
     - {fileID: 2800006, guid: fa61bca29bc3bef46945c8eccc3f8cad, type: 3}
     - {fileID: 2800008, guid: fa61bca29bc3bef46945c8eccc3f8cad, type: 3}

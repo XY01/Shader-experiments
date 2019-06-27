@@ -8,6 +8,7 @@ ScriptedImporter:
     2800004: MedBay_Walls - metallic
     2800006: MedBay_Walls - height
     2800008: MedBay_Walls - ambientOcclusion
+    2800010: MedBay_Walls - roughness
     11400000: sbsar
     11400002: graph0
   externalObjects: {}
@@ -20,14 +21,17 @@ ScriptedImporter:
   - graphLabel: MedBay_Walls
     prototypeName: MedBay_Walls
     graphDescIndex: 0
-    generateAllOutputs: 0
-    generateMipMaps: 1
-    preset: " <sbspreset pkgurl=\"pkg://MedBay_Walls\" label=\"\" >\n </sbspreset>\n"
+    generateAllOutputs: 1
+    generateMipMaps: 0
+    preset: " <sbspreset pkgurl=\"pkg://MedBay_Walls\" label=\"\" >\n  <presetinput
+      identifier=\"$outputsize\" uid=\"1162568655\" type=\"8\" value=\"11,11\" />\n
+      </sbspreset>\n"
     shaderName: Standard
-    outputNames: baseColor,normal,metallic,height,ambientOcclusion
+    outputNames: 
     materialProperties:
       shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
       shaderKeywords: _MAINTEX _METALLICGLOSSMAP _NORMALMAP _OCCLUSIONMAP _PARALLAXMAP
+        _ROUGHNESSMAP
       lightmapFlags: 4
       texEnvs:
       - name: _BumpMap
@@ -48,11 +52,11 @@ ScriptedImporter:
         offset: {x: 0, y: 0}
       - name: _EmissionMap
         texture: {instanceID: 0}
-        scale: {x: 1, y: 1}
+        scale: {x: 0.5, y: 0.5}
         offset: {x: 0, y: 0}
       - name: _MainTex
         texture: {fileID: 2800000, guid: c7dff9b188ff0fa4884733bc13fc83ba, type: 3}
-        scale: {x: 1, y: 1}
+        scale: {x: 0.5, y: 0.5}
         offset: {x: 0, y: 0}
       - name: _MetallicGlossMap
         texture: {fileID: 2800004, guid: c7dff9b188ff0fa4884733bc13fc83ba, type: 3}
@@ -159,12 +163,13 @@ ScriptedImporter:
     targetSettingList:
     - label: 
       bLockRatio: 1
-      textureWidth: 256
-      textureHeight: 256
+      textureWidth: 2048
+      textureHeight: 2048
       textureFormat: 0
       bGenerateOnLoad: 1
     material: {fileID: 2100000, guid: c7dff9b188ff0fa4884733bc13fc83ba, type: 3}
     generatedTextures:
+    - {fileID: 2800010, guid: c7dff9b188ff0fa4884733bc13fc83ba, type: 3}
     - {fileID: 2800000, guid: c7dff9b188ff0fa4884733bc13fc83ba, type: 3}
     - {fileID: 2800002, guid: c7dff9b188ff0fa4884733bc13fc83ba, type: 3}
     - {fileID: 2800004, guid: c7dff9b188ff0fa4884733bc13fc83ba, type: 3}

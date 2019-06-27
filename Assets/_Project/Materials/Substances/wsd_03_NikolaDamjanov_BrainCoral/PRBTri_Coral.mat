@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: PRBTri_Coral
+  m_Shader: {fileID: 4800000, guid: 66803cbb7edb9f44f965c94fa0dfcd3b, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 0
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Albedo:
+        m_Texture: {fileID: 2800000, guid: 79643b335d611f140b498019f4564ecf, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Emission:
+        m_Texture: {fileID: 2800000, guid: 521986081bb17314bb44ea728768c322, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Metallic:
+        m_Texture: {fileID: 2800004, guid: e2316ff5995eaae48a830cdb100816c3, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Normal:
+        m_Texture: {fileID: 2800002, guid: e2316ff5995eaae48a830cdb100816c3, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Rough:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TopTexture0:
+        m_Texture: {fileID: 2800000, guid: 9f41c92017adde44c8c4e83fe96372ed, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TopTexture1:
+        m_Texture: {fileID: 2800010, guid: 9f41c92017adde44c8c4e83fe96372ed, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TopTexture2:
+        m_Texture: {fileID: 2800002, guid: 9f41c92017adde44c8c4e83fe96372ed, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TopTexture3:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TopTexture4:
+        m_Texture: {fileID: 2800004, guid: 9f41c92017adde44c8c4e83fe96372ed, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _Cutoff: 0.5
+    - _EmissionScaler: 0.94
+    - _Fade: 1
+    - _Falloff: 4
+    - _NormalScale: 1.39
+    - __dirty: 0
+    m_Colors:
+    - _AlbedoCol: {r: 1, g: 1, b: 1, a: 1}
+    - _Color0: {r: 1, g: 0, b: 0, a: 0}
+    - _EmissionCol: {r: 0.5164388, g: 0.4575472, b: 1, a: 0}
+    - _Tiling: {r: 1, g: 1, b: 0, a: 0}

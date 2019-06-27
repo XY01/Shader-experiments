@@ -8,6 +8,7 @@ ScriptedImporter:
     2800004: SciFiMeshArmour - height
     2800006: SciFiMeshArmour - normal
     2800008: SciFiMeshArmour - metallic
+    2800010: SciFiMeshArmour - roughness
     11400000: sbsar
     11400002: graph0
   externalObjects: {}
@@ -20,14 +21,16 @@ ScriptedImporter:
   - graphLabel: SciFiMeshArmour
     prototypeName: SciFiMeshArmour
     graphDescIndex: 0
-    generateAllOutputs: 0
-    generateMipMaps: 1
-    preset: " <sbspreset pkgurl=\"pkg://SciFiMeshArmour\" label=\"\" >\n </sbspreset>\n"
+    generateAllOutputs: 1
+    generateMipMaps: 0
+    preset: " <sbspreset pkgurl=\"pkg://SciFiMeshArmour\" label=\"\" >\n  <presetinput
+      identifier=\"$outputsize\" uid=\"2870183676\" type=\"8\" value=\"10,10\" />\n
+      </sbspreset>\n"
     shaderName: Standard
-    outputNames: baseColor,emissive,height,normal,metallic
+    outputNames: 
     materialProperties:
       shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-      shaderKeywords: _MAINTEX _METALLICGLOSSMAP _NORMALMAP _PARALLAXMAP
+      shaderKeywords: _MAINTEX _METALLICGLOSSMAP _NORMALMAP _PARALLAXMAP _ROUGHNESSMAP
       lightmapFlags: 4
       texEnvs:
       - name: _BumpMap
@@ -159,8 +162,8 @@ ScriptedImporter:
     targetSettingList:
     - label: 
       bLockRatio: 1
-      textureWidth: 256
-      textureHeight: 256
+      textureWidth: 1024
+      textureHeight: 1024
       textureFormat: 0
       bGenerateOnLoad: 1
     material: {fileID: 2100000, guid: 8205e9745f32039439454871740501f3, type: 3}
@@ -170,3 +173,4 @@ ScriptedImporter:
     - {fileID: 2800004, guid: 8205e9745f32039439454871740501f3, type: 3}
     - {fileID: 2800006, guid: 8205e9745f32039439454871740501f3, type: 3}
     - {fileID: 2800008, guid: 8205e9745f32039439454871740501f3, type: 3}
+    - {fileID: 2800010, guid: 8205e9745f32039439454871740501f3, type: 3}

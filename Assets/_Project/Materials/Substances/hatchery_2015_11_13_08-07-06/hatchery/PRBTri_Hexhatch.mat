@@ -61,7 +61,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _Cutoff: 0.5
-    - _EmissionScaler: 0.28520998
+    - _EmissionScaler: 2.2638822
     - _Fade: 0.892
     - _Falloff: 6
     - _NormalScale: 1.39

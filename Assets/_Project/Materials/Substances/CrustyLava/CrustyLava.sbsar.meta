@@ -8,6 +8,8 @@ ScriptedImporter:
     2800004: CrustyLava - height
     2800006: CrustyLava - baseColor
     2800008: CrustyLava - metallic
+    2800010: CrustyLava - roughness
+    2800012: CrustyLava - specular
     11400000: sbsar
     11400002: graph0
   externalObjects: {}
@@ -20,14 +22,17 @@ ScriptedImporter:
   - graphLabel: CrustyLava
     prototypeName: CrustyLava
     graphDescIndex: 0
-    generateAllOutputs: 0
-    generateMipMaps: 1
-    preset: " <sbspreset pkgurl=\"pkg://CrustyLava\" label=\"\" >\n </sbspreset>\n"
+    generateAllOutputs: 1
+    generateMipMaps: 0
+    preset: " <sbspreset pkgurl=\"pkg://CrustyLava\" label=\"\" >\n  <presetinput
+      identifier=\"$randomseed\" uid=\"1155212109\" type=\"4\" value=\"9300\" />\n
+      </sbspreset>\n"
     shaderName: Standard
-    outputNames: normal,emissive,height,baseColor,metallic
+    outputNames: 
     materialProperties:
       shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-      shaderKeywords: _MAINTEX _METALLICGLOSSMAP _NORMALMAP _PARALLAXMAP
+      shaderKeywords: _MAINTEX _METALLICGLOSSMAP _NORMALMAP _PARALLAXMAP _ROUGHNESSMAP
+        _SPECGLOSSMAP
       lightmapFlags: 4
       texEnvs:
       - name: _BumpMap
@@ -173,7 +178,9 @@ ScriptedImporter:
       bGenerateOnLoad: 1
     material: {fileID: 2100000, guid: acbb4725cec616f4096111ee867aee93, type: 3}
     generatedTextures:
+    - {fileID: 2800010, guid: acbb4725cec616f4096111ee867aee93, type: 3}
     - {fileID: 2800000, guid: acbb4725cec616f4096111ee867aee93, type: 3}
+    - {fileID: 2800012, guid: acbb4725cec616f4096111ee867aee93, type: 3}
     - {fileID: 2800002, guid: acbb4725cec616f4096111ee867aee93, type: 3}
     - {fileID: 2800004, guid: acbb4725cec616f4096111ee867aee93, type: 3}
     - {fileID: 2800006, guid: acbb4725cec616f4096111ee867aee93, type: 3}

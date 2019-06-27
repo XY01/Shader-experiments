@@ -22,7 +22,8 @@ ScriptedImporter:
     graphDescIndex: 0
     generateAllOutputs: 0
     generateMipMaps: 1
-    preset: " <sbspreset pkgurl=\"pkg://Coral\" label=\"\" >\n </sbspreset>\n"
+    preset: " <sbspreset pkgurl=\"pkg://Coral\" label=\"\" >\n  <presetinput identifier=\"$randomseed\"
+      uid=\"562487330\" type=\"4\" value=\"5073\" />\n </sbspreset>\n"
     shaderName: Standard
     outputNames: baseColor,normal,metallic,height,emissive
     materialProperties:

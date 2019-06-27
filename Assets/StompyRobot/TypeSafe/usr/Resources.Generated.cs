@@ -45,27 +45,51 @@ public sealed class SRResources {
         }
     }
     
+    public static global::TypeSafe.Resource<global::UnityEngine.Texture2D> metal_painted_barrel_roughness {
+        get {
+            return ((global::TypeSafe.Resource<global::UnityEngine.Texture2D>)(@__ts_internal_resources[4]));
+        }
+    }
+    
+    public static global::TypeSafe.Resource<global::UnityEngine.Texture2D> metal_painted_barrel_metallic {
+        get {
+            return ((global::TypeSafe.Resource<global::UnityEngine.Texture2D>)(@__ts_internal_resources[5]));
+        }
+    }
+    
     public static global::TypeSafe.PrefabResource CV_Slider {
         get {
-            return ((global::TypeSafe.PrefabResource)(@__ts_internal_resources[4]));
+            return ((global::TypeSafe.PrefabResource)(@__ts_internal_resources[6]));
+        }
+    }
+    
+    public static global::TypeSafe.Resource<global::UnityEngine.Texture2D> metal_painted_barrel_height {
+        get {
+            return ((global::TypeSafe.Resource<global::UnityEngine.Texture2D>)(@__ts_internal_resources[7]));
         }
     }
     
     public static global::TypeSafe.Resource<global::UnityEngine.Shader> TinyPlanet {
         get {
-            return ((global::TypeSafe.Resource<global::UnityEngine.Shader>)(@__ts_internal_resources[5]));
+            return ((global::TypeSafe.Resource<global::UnityEngine.Shader>)(@__ts_internal_resources[8]));
         }
     }
     
     public static global::TypeSafe.Resource<global::UnityEngine.Shader> Receiver {
         get {
-            return ((global::TypeSafe.Resource<global::UnityEngine.Shader>)(@__ts_internal_resources[6]));
+            return ((global::TypeSafe.Resource<global::UnityEngine.Shader>)(@__ts_internal_resources[9]));
         }
     }
     
     public static global::TypeSafe.Resource<global::UnityEngine.TextAsset> LineBreaking_Following_Characters {
         get {
-            return ((global::TypeSafe.Resource<global::UnityEngine.TextAsset>)(@__ts_internal_resources[7]));
+            return ((global::TypeSafe.Resource<global::UnityEngine.TextAsset>)(@__ts_internal_resources[10]));
+        }
+    }
+    
+    public static global::TypeSafe.Resource<global::UnityEngine.Texture2D> metal_painted_barrel_basecolor {
+        get {
+            return ((global::TypeSafe.Resource<global::UnityEngine.Texture2D>)(@__ts_internal_resources[11]));
         }
     }
     
@@ -74,10 +98,14 @@ public sealed class SRResources {
                 new global::TypeSafe.Resource<global::UnityEngine.Shader>("EquiCam", "EquiCam"),
                 new global::TypeSafe.Resource<global::UnityEngine.TextAsset>("LineBreaking Leading Characters", "LineBreaking Leading Characters"),
                 new global::TypeSafe.Resource<global::UnityEngine.Shader>("Sender", "Sender"),
+                new global::TypeSafe.Resource<global::UnityEngine.Texture2D>("metal_painted_barrel_roughness", "metal_painted_barrel_roughness"),
+                new global::TypeSafe.Resource<global::UnityEngine.Texture2D>("metal_painted_barrel_metallic", "metal_painted_barrel_metallic"),
                 new global::TypeSafe.PrefabResource("CV Slider", "CV Slider"),
+                new global::TypeSafe.Resource<global::UnityEngine.Texture2D>("metal_painted_barrel_height", "metal_painted_barrel_height"),
                 new global::TypeSafe.Resource<global::UnityEngine.Shader>("TinyPlanet", "TinyPlanet"),
                 new global::TypeSafe.Resource<global::UnityEngine.Shader>("Receiver", "Receiver"),
-                new global::TypeSafe.Resource<global::UnityEngine.TextAsset>("LineBreaking Following Characters", "LineBreaking Following Characters")});
+                new global::TypeSafe.Resource<global::UnityEngine.TextAsset>("LineBreaking Following Characters", "LineBreaking Following Characters"),
+                new global::TypeSafe.Resource<global::UnityEngine.Texture2D>("metal_painted_barrel_basecolor", "metal_painted_barrel_basecolor")});
     
     public sealed class Materials {
         

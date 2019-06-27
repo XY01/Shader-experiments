@@ -13,8 +13,8 @@ public static class MeshExtensions
 		return mesh;
 	}
 
-    //FEATURE Calculate area by iterating thorugh tris
-    public static float CalculateSurfaceArea(Mesh mesh)
+    //TODO: Calculate area by iterating thorugh tris
+    public static float CalculateArea(Mesh mesh)
     {
         return 0;
     }

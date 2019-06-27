@@ -18,8 +18,9 @@ public class DataRacketIn : MonoBehaviour
     public static DataRacketIn Instance { get { return m_Instance; } }
     public static DataRacketIn m_Instance;
 
-    float _Loudness;
-    float _LoudnessSmooth;
+    [Range(0,1)]public float _Loudness;
+    public float _LoudnessSmooth = 0;
+    public Vector2 _LoudnessRange = new Vector2(.7f, 1f);
 
     float _Panning;
     float _PanningSmooth;
@@ -93,7 +94,19 @@ public class DataRacketIn : MonoBehaviour
 	void Update ()
     {
         if (_LoudnessOSC.Updated && _LoudnessOSC.DataAvailable)
-            _Loudness = _LoudnessOSC.GetDataAsFloat();
+        {
+            float loud = _LoudnessOSC.GetDataAsFloat().ScaleTo01(_LoudnessRange.x, _LoudnessRange.y);
+
+            if (_LoudnessSmooth > 0)
+            {
+                if (loud > _Loudness)
+                    _Loudness = loud;
+                else
+                    _Loudness = Mathf.Lerp(_Loudness, loud, Time.deltaTime * _LoudnessSmooth);
+            }
+            else
+                _Loudness = loud;
+        }
 
         if (_PanningOSC.Updated && _PanningOSC.DataAvailable)
             _Panning = _PanningOSC.GetDataAsFloat();
@@ -115,8 +128,7 @@ public class DataRacketIn : MonoBehaviour
 
         if (_AttackCOSC.Updated && _AttackCOSC.DataAvailable)
             _AttackC = _AttackCOSC.GetDataAsFloat();
-
-        print(_Loudness);
+        
 
         // FFT
         if (_FFTOSC.Updated && _FFTOSC.DataAvailable)

@@ -46,6 +46,7 @@ public class SplashMixer : MonoBehaviour
         for (int i = 0; i < _SplsahObjectParent.childCount; i++)
         {
             _AllSplashObjects[i] = _SplsahObjectParent.GetChild(i).GetComponent<SplashObjectBase>();
+            print(i);
             _AllSplashObjects[i].Deactivate();
         }
     }

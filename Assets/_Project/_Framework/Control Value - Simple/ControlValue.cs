@@ -21,6 +21,9 @@ public class ControlValue
 
     OSCListener _OSCListener;
 
+    // Hax
+    public DataInType _DataRacketType = DataInType.None;
+
     public ControlValue(string name, float normVal, float minRange, float maxRange, string oscAddressPrefix)
     {
         _Name = name;
@@ -42,11 +45,20 @@ public class ControlValue
         if (_Culumlative)
             CumulativeValue += delta * Value;
 
+        if (_DataRacketType != DataInType.None)
+        {
+           
+            _NormalizedValue = DataRacketIn.Instance.GetData(_DataRacketType);
+            //Debug.Log("Here   " + _NormalizedValue);
+        }
+        
+        
         // SMOOTHING - Add smoothign if smoothing speed set higher than 0
         if (_SmoothingSpeed == 0)
             Value = _NormalizedValue.ScaleFrom01(_Range.x, _Range.y);
         else
             Value = Mathf.Lerp(Value, _NormalizedValue.ScaleFrom01(_Range.x, _Range.y), _SmoothingSpeed * delta);
+        
 
         if (_OSCListener.Updated)
         {

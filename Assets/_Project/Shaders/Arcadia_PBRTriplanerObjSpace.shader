@@ -12,8 +12,9 @@ Shader "Arcadia/PRBTriplanerObjecctSpace"
 		_Emission("Emission", 2D) = "black" {}
 		_Tiling("Tiling", Vector) = (1,1,0,0)
 		_NormalScale("Normal Scale", Range( 0 , 3)) = 1
-		_Falloff("Falloff", Range( 0.75 , 4)) = 1.760414
+		_Falloff("Falloff", Float) = 1.760414
 		_Fade("Fade", Range( 0 , 1)) = 0
+		_EmissionScaler("EmissionScaler", Range( 0 , 3)) = 0
 		[HideInInspector] __dirty( "", Int ) = 1
 	}
 
@@ -48,6 +49,7 @@ Shader "Arcadia/PRBTriplanerObjecctSpace"
 		uniform float _Falloff;
 		uniform float _NormalScale;
 		uniform sampler2D _Albedo;
+		uniform float _EmissionScaler;
 		uniform sampler2D _Emission;
 		uniform sampler2D _Metallic;
 		uniform sampler2D _Rough;
@@ -154,7 +156,7 @@ Shader "Arcadia/PRBTriplanerObjecctSpace"
 			float4 triplanar5 = TriplanarSamplingSF( _Albedo, ase_vertex3Pos, ase_vertexNormal, _Falloff, _Tiling, 1.0, 0 );
 			o.Albedo = triplanar5.xyz;
 			float4 triplanar9 = TriplanarSamplingSF( _Emission, ase_vertex3Pos, ase_vertexNormal, _Falloff, _Tiling, 1.0, 0 );
-			o.Emission = triplanar9.xyz;
+			o.Emission = ( _EmissionScaler * triplanar9 ).xyz;
 			float4 triplanar16 = TriplanarSamplingSF( _Metallic, ase_vertex3Pos, ase_vertexNormal, _Falloff, _Tiling, 1.0, 0 );
 			o.Metallic = triplanar16.x;
 			float4 triplanar7 = TriplanarSamplingSF( _Rough, ase_vertex3Pos, ase_vertexNormal, _Falloff, _Tiling, 1.0, 0 );
@@ -246,25 +248,27 @@ Shader "Arcadia/PRBTriplanerObjecctSpace"
 }
 /*ASEBEGIN
 Version=16700
-7;7;1453;1004;1201.261;161.8329;1.3;True;True
+7;1;1453;1010;845.543;237.5721;1.325632;True;True
 Node;AmplifyShaderEditor.Vector2Node;11;-1106.625,113.1431;Float;False;Property;_Tiling;Tiling;6;0;Create;True;0;0;False;0;1,1;1,1;0;3;FLOAT2;0;FLOAT;1;FLOAT;2
-Node;AmplifyShaderEditor.RangedFloatNode;13;-1209.523,318.5431;Float;False;Property;_Falloff;Falloff;8;0;Create;True;0;0;False;0;1.760414;4;0.75;4;0;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;13;-1209.523,318.5431;Float;False;Property;_Falloff;Falloff;8;0;Create;True;0;0;False;0;1.760414;6;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.RangedFloatNode;12;-1216.625,239.2432;Float;False;Property;_NormalScale;Normal Scale;7;0;Create;True;0;0;False;0;1;1.39;0;3;0;1;FLOAT;0
 Node;AmplifyShaderEditor.TriplanarNode;7;-653.7238,703.344;Float;True;Spherical;Object;False;Rough;_Rough;white;2;Assets/_Project/Materials/Substances/Mordor/mordor_rock.sbsar;Mid Texture 2;_MidTexture2;white;-1;None;Bot Texture 2;_BotTexture2;white;-1;None;Rough;False;10;0;SAMPLER2D;;False;5;FLOAT;1;False;1;SAMPLER2D;;False;6;FLOAT;0;False;2;SAMPLER2D;;False;7;FLOAT;0;False;9;FLOAT3;0,0,0;False;8;FLOAT;1;False;3;FLOAT2;1,1;False;4;FLOAT;1;False;5;FLOAT4;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.RangedFloatNode;18;-220.1238,1014.602;Float;False;Property;_Fade;Fade;9;0;Create;True;0;0;False;0;0;1;0;1;0;1;FLOAT;0
-Node;AmplifyShaderEditor.TriplanarNode;5;-651.1245,-87.0568;Float;True;Spherical;Object;False;Albedo;_Albedo;white;1;Assets/_Project/Materials/Substances/Mordor/mordor_rock.sbsar;Mid Texture 1;_MidTexture1;white;-1;None;Bot Texture 1;_BotTexture1;white;-1;None;Albedo;False;10;0;SAMPLER2D;;False;5;FLOAT;1;False;1;SAMPLER2D;;False;6;FLOAT;0;False;2;SAMPLER2D;;False;7;FLOAT;0;False;9;FLOAT3;0,0,0;False;8;FLOAT;1;False;3;FLOAT2;1,1;False;4;FLOAT;1;False;5;FLOAT4;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.RangedFloatNode;18;-220.1238,1014.602;Float;False;Property;_Fade;Fade;9;0;Create;True;0;0;False;0;0;0.892;0;1;0;1;FLOAT;0
 Node;AmplifyShaderEditor.TriplanarNode;9;-655.0241,297.7434;Float;True;Spherical;Object;False;Emission;_Emission;black;5;None;Mid Texture 0;_MidTexture0;white;-1;None;Bot Texture 0;_BotTexture0;white;-1;None;Emission;False;10;0;SAMPLER2D;;False;5;FLOAT;1;False;1;SAMPLER2D;;False;6;FLOAT;0;False;2;SAMPLER2D;;False;7;FLOAT;0;False;9;FLOAT3;0,0,0;False;8;FLOAT;1;False;3;FLOAT2;1,1;False;4;FLOAT;1;False;5;FLOAT4;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.RangedFloatNode;20;-187.0508,342.2899;Float;False;Property;_EmissionScaler;EmissionScaler;10;0;Create;True;0;0;False;0;0;1;0;3;0;1;FLOAT;0
+Node;AmplifyShaderEditor.TriplanarNode;5;-651.1245,-87.0568;Float;True;Spherical;Object;False;Albedo;_Albedo;white;1;Assets/_Project/Materials/Substances/Mordor/mordor_rock.sbsar;Mid Texture 1;_MidTexture1;white;-1;None;Bot Texture 1;_BotTexture1;white;-1;None;Albedo;False;10;0;SAMPLER2D;;False;5;FLOAT;1;False;1;SAMPLER2D;;False;6;FLOAT;0;False;2;SAMPLER2D;;False;7;FLOAT;0;False;9;FLOAT3;0,0,0;False;8;FLOAT;1;False;3;FLOAT2;1,1;False;4;FLOAT;1;False;5;FLOAT4;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.TriplanarNode;16;-647.9233,507.0434;Float;True;Spherical;Object;False;Metallic;_Metallic;black;3;Assets/_Project/Materials/Substances/Mordor/mordor_rock.sbsar;Mid Texture 4;_MidTexture4;white;-1;None;Bot Texture 4;_BotTexture4;white;-1;None;Metallic;False;10;0;SAMPLER2D;;False;5;FLOAT;1;False;1;SAMPLER2D;;False;6;FLOAT;0;False;2;SAMPLER2D;;False;7;FLOAT;0;False;9;FLOAT3;0,0,0;False;8;FLOAT;1;False;3;FLOAT2;1,1;False;4;FLOAT;1;False;5;FLOAT4;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.OneMinusNode;17;-191.6237,722.8424;Float;False;1;0;FLOAT;0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.FunctionNode;19;80.03122,1021.375;Float;False;WorldFade;-1;;6;361dea0c654d2bb4586db9164587a602;0;1;12;FLOAT;1;False;2;FLOAT;26;FLOAT;0
 Node;AmplifyShaderEditor.TriplanarNode;8;-649.8242,100.1432;Float;True;Spherical;Object;True;Normal;_Normal;white;4;Assets/_Project/Materials/Substances/Mordor/mordor_rock.sbsar;Mid Texture 3;_MidTexture3;white;-1;None;Bot Texture 3;_BotTexture3;white;-1;None;Normal;False;10;0;SAMPLER2D;;False;5;FLOAT;1;False;1;SAMPLER2D;;False;6;FLOAT;0;False;2;SAMPLER2D;;False;7;FLOAT;0;False;9;FLOAT3;0,0,0;False;8;FLOAT;1;False;3;FLOAT2;1,1;False;4;FLOAT;1;False;5;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.SimpleMultiplyOpNode;21;202.542,472.8697;Float;False;2;2;0;FLOAT;0;False;1;FLOAT4;0,0,0,0;False;1;FLOAT4;0
 Node;AmplifyShaderEditor.StandardSurfaceOutputNode;0;558.7979,139.7654;Float;False;True;6;Float;ASEMaterialInspector;0;0;Standard;Arcadia/PRBTriplanerObjecctSpace;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;Off;0;False;-1;0;False;-1;False;0;False;-1;0;False;-1;False;0;Custom;0.5;True;True;0;True;TransparentCutout;;Geometry;All;True;True;True;True;True;True;True;True;True;True;True;True;True;True;True;True;True;0;False;-1;False;0;False;-1;255;False;-1;255;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;-1;False;2;15;10;25;False;0.5;True;0;0;False;-1;0;False;-1;0;0;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;0;0,0,0,0;VertexOffset;True;False;Cylindrical;False;Relative;0;;0;-1;-1;-1;0;False;0;0;False;-1;-1;0;False;-1;0;0;0;False;0.1;False;-1;0;False;-1;16;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;2;FLOAT3;0,0,0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT3;0,0,0;False;7;FLOAT3;0,0,0;False;8;FLOAT;0;False;9;FLOAT;0;False;10;FLOAT;0;False;13;FLOAT3;0,0,0;False;11;FLOAT3;0,0,0;False;12;FLOAT3;0,0,0;False;14;FLOAT4;0,0,0,0;False;15;FLOAT3;0,0,0;False;0
 WireConnection;7;3;11;0
 WireConnection;7;4;13;0
-WireConnection;5;3;11;0
-WireConnection;5;4;13;0
 WireConnection;9;3;11;0
 WireConnection;9;4;13;0
+WireConnection;5;3;11;0
+WireConnection;5;4;13;0
 WireConnection;16;3;11;0
 WireConnection;16;4;13;0
 WireConnection;17;0;7;1
@@ -272,11 +276,13 @@ WireConnection;19;12;18;0
 WireConnection;8;8;12;0
 WireConnection;8;3;11;0
 WireConnection;8;4;13;0
+WireConnection;21;0;20;0
+WireConnection;21;1;9;0
 WireConnection;0;0;5;0
 WireConnection;0;1;8;0
-WireConnection;0;2;9;0
+WireConnection;0;2;21;0
 WireConnection;0;3;16;0
 WireConnection;0;4;17;0
 WireConnection;0;10;19;0
 ASEEND*/
-//CHKSM=E64B0724DBB8BA14DF56B283E5F0FA3706DA62BF
+//CHKSM=A5981D7054AD6D8AB564C24B428D0B45300D187E

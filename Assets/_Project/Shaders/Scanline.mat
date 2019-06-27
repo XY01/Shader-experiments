@@ -23,14 +23,18 @@ Material:
         m_Texture: {fileID: 2800006, guid: c4217086cd2f2754d91e4e76522669a9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
     - _EmissionScaler: 2.6
     - _Fade: 1
     - _Float0: 0.3
-    - _ManualSpeed: 1.0750031
-    - _NoiseScaler: 0
-    - _Width1: 0.19999988
-    - _Width2: 0.0269087
+    - _ManualSpeed: 7.6117616
+    - _NoiseScaler: 0.35142994
+    - _Width1: 0.4628941
+    - _Width2: 0.022077989
     - __dirty: 0
     m_Colors:
     - _Color0: {r: 1, g: 1, b: 1, a: 1}

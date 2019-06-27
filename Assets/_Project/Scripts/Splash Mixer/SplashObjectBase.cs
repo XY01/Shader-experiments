@@ -70,7 +70,7 @@ public class SplashObjectBase : MonoBehaviour
         _FadeCV._NormalizedValue = 1;
 
         float timer = 0;
-        float duration = .5f;
+        float duration = 1f;
 
         while(timer < duration)
         {
@@ -95,7 +95,7 @@ public class SplashObjectBase : MonoBehaviour
         }
 
         float timer = 0;
-        float duration = .5f;
+        float duration = 1f;
 
         while (timer < duration)
         {

@@ -35,19 +35,19 @@ Material:
     - _Cutoff: 0.5
     - _EMissivescaler: 400
     - _EdgeLength: 15
-    - _Fade: -0.8283435
+    - _Fade: -0.3912691
     - _FadeNoiseSize: 0.88
     - _FreqPI: 0.5
     - _Frequency: 0.4
-    - _ManualTime: 39.899998
+    - _ManualTime: 44.079998
     - _NoiseSize: 0.9
     - _NormalLerp: 0.5
     - _Offset: -0.07999998
     - _PosSpeed: 0.67
     - _Speed: 0.31
-    - _TexValOffset: 3.90159
-    - _Tiling: 0.25768068
-    - _WorldPosOffset: 15.197491
+    - _TexValOffset: 0.5839998
+    - _Tiling: 0.08400001
+    - _WorldPosOffset: 1.1679996
     - __dirty: 0
     m_Colors:
     - _MainCol: {r: 0.8018868, g: 0.8018868, b: 0.8018868, a: 0}

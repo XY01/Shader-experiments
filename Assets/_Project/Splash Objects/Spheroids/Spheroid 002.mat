@@ -32,7 +32,7 @@ Material:
     - _Cutoff: 0.5
     - _Metallic: 0
     - _Smoothness: 0.65
-    - _StepCutoff: 1
+    - _StepCutoff: 0.11339265
     - _VertCount: 3585
     - _VertOffset_Max: 0
     - _VertOffset_Min: 0

@@ -53,9 +53,9 @@ public class OSCHandler : MonoBehaviour
         {
             if (m_Instance == null)
             {
-                GameObject managerParent = GameObject.Find("*Managers");
+                GameObject managerParent = GameObject.Find("_Managers");
                 if (managerParent == null)
-                    managerParent = new GameObject("*Managers");
+                    managerParent = new GameObject("_Managers");
 
                 m_Instance = new GameObject("OSCHandlerNoGUI").AddComponent<OSCHandler>();
                 m_Instance.ManualInstantiation();

@@ -116,6 +116,8 @@ public class DataRacketIn : MonoBehaviour
         if (_AttackCOSC.Updated && _AttackCOSC.DataAvailable)
             _AttackC = _AttackCOSC.GetDataAsFloat();
 
+        print(_Loudness);
+
         // FFT
         if (_FFTOSC.Updated && _FFTOSC.DataAvailable)
         {

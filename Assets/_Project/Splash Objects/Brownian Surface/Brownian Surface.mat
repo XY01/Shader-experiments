@@ -25,16 +25,16 @@ Material:
     - _EdgeLength: 15
     - _Emission: 0.1
     - _EmitStr: 3.63
-    - _Fade: 1
+    - _Fade: 0.06672734
     - _FadeNoiseSize: 1
     - _Float6: 0.2
-    - _Freq: 1.4499993
-    - _ManualSpeed: 3.856341
+    - _Freq: 6.176752
+    - _ManualSpeed: 15.196296
     - _NormalOffset: -0.3
     - _Offset: 0
     - _PeakValleyMix: 0.8
     - _RingStart: 0.49999982
-    - _RingWidth: 0.07499996
+    - _RingWidth: 0.08294775
     - _Smoothness: 0.282
     - _TessPhongStrength: 0.5
     - _TimeScaler: 0.17

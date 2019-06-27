@@ -20,7 +20,7 @@ Shader "Arcadia/PRBTriplanerObjecctSpace"
 	SubShader
 	{
 		Tags{ "RenderType" = "TransparentCutout"  "Queue" = "Geometry+0" "IsEmissive" = "true"  }
-		Cull Back
+		Cull Off
 		CGINCLUDE
 		#include "UnityShaderVariables.cginc"
 		#include "UnityPBSLighting.cginc"
@@ -161,7 +161,8 @@ Shader "Arcadia/PRBTriplanerObjecctSpace"
 			o.Smoothness = ( 1.0 - triplanar7.x );
 			o.Alpha = 1;
 			float simplePerlin3D5_g6 = snoise( ( 1.0 * ( ase_worldPos * float3(0.2,8,0.2) ) ) );
-			clip( ( (-1.0 + (_Fade - 0.0) * (2.0 - -1.0) / (1.0 - 0.0)) + simplePerlin3D5_g6 ) - _Cutoff );
+			float temp_output_6_0_g6 = ( (-1.0 + (_Fade - 0.0) * (2.0 - -1.0) / (1.0 - 0.0)) + simplePerlin3D5_g6 );
+			clip( temp_output_6_0_g6 - _Cutoff );
 		}
 
 		ENDCG
@@ -245,19 +246,19 @@ Shader "Arcadia/PRBTriplanerObjecctSpace"
 }
 /*ASEBEGIN
 Version=16700
-7;1;1453;1010;1201.261;165.7329;1.3;True;True
+7;7;1453;1004;1201.261;161.8329;1.3;True;True
 Node;AmplifyShaderEditor.Vector2Node;11;-1106.625,113.1431;Float;False;Property;_Tiling;Tiling;6;0;Create;True;0;0;False;0;1,1;1,1;0;3;FLOAT2;0;FLOAT;1;FLOAT;2
 Node;AmplifyShaderEditor.RangedFloatNode;13;-1209.523,318.5431;Float;False;Property;_Falloff;Falloff;8;0;Create;True;0;0;False;0;1.760414;4;0.75;4;0;1;FLOAT;0
-Node;AmplifyShaderEditor.RangedFloatNode;12;-1216.625,239.2432;Float;False;Property;_NormalScale;Normal Scale;7;0;Create;True;0;0;False;0;1;1;0;3;0;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;12;-1216.625,239.2432;Float;False;Property;_NormalScale;Normal Scale;7;0;Create;True;0;0;False;0;1;1.39;0;3;0;1;FLOAT;0
 Node;AmplifyShaderEditor.TriplanarNode;7;-653.7238,703.344;Float;True;Spherical;Object;False;Rough;_Rough;white;2;Assets/_Project/Materials/Substances/Mordor/mordor_rock.sbsar;Mid Texture 2;_MidTexture2;white;-1;None;Bot Texture 2;_BotTexture2;white;-1;None;Rough;False;10;0;SAMPLER2D;;False;5;FLOAT;1;False;1;SAMPLER2D;;False;6;FLOAT;0;False;2;SAMPLER2D;;False;7;FLOAT;0;False;9;FLOAT3;0,0,0;False;8;FLOAT;1;False;3;FLOAT2;1,1;False;4;FLOAT;1;False;5;FLOAT4;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.RangedFloatNode;18;-220.1238,1014.602;Float;False;Property;_Fade;Fade;9;0;Create;True;0;0;False;0;0;1;0;1;0;1;FLOAT;0
 Node;AmplifyShaderEditor.TriplanarNode;5;-651.1245,-87.0568;Float;True;Spherical;Object;False;Albedo;_Albedo;white;1;Assets/_Project/Materials/Substances/Mordor/mordor_rock.sbsar;Mid Texture 1;_MidTexture1;white;-1;None;Bot Texture 1;_BotTexture1;white;-1;None;Albedo;False;10;0;SAMPLER2D;;False;5;FLOAT;1;False;1;SAMPLER2D;;False;6;FLOAT;0;False;2;SAMPLER2D;;False;7;FLOAT;0;False;9;FLOAT3;0,0,0;False;8;FLOAT;1;False;3;FLOAT2;1,1;False;4;FLOAT;1;False;5;FLOAT4;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.TriplanarNode;9;-655.0241,297.7434;Float;True;Spherical;Object;False;Emission;_Emission;black;5;None;Mid Texture 0;_MidTexture0;white;-1;None;Bot Texture 0;_BotTexture0;white;-1;None;Emission;False;10;0;SAMPLER2D;;False;5;FLOAT;1;False;1;SAMPLER2D;;False;6;FLOAT;0;False;2;SAMPLER2D;;False;7;FLOAT;0;False;9;FLOAT3;0,0,0;False;8;FLOAT;1;False;3;FLOAT2;1,1;False;4;FLOAT;1;False;5;FLOAT4;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.TriplanarNode;16;-647.9233,507.0434;Float;True;Spherical;Object;False;Metallic;_Metallic;black;3;Assets/_Project/Materials/Substances/Mordor/mordor_rock.sbsar;Mid Texture 4;_MidTexture4;white;-1;None;Bot Texture 4;_BotTexture4;white;-1;None;Metallic;False;10;0;SAMPLER2D;;False;5;FLOAT;1;False;1;SAMPLER2D;;False;6;FLOAT;0;False;2;SAMPLER2D;;False;7;FLOAT;0;False;9;FLOAT3;0,0,0;False;8;FLOAT;1;False;3;FLOAT2;1,1;False;4;FLOAT;1;False;5;FLOAT4;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.OneMinusNode;17;-191.6237,722.8424;Float;False;1;0;FLOAT;0;False;1;FLOAT;0
-Node;AmplifyShaderEditor.FunctionNode;19;80.03122,1021.375;Float;False;WorldFade;-1;;6;361dea0c654d2bb4586db9164587a602;0;1;12;FLOAT;1;False;1;FLOAT;0
+Node;AmplifyShaderEditor.FunctionNode;19;80.03122,1021.375;Float;False;WorldFade;-1;;6;361dea0c654d2bb4586db9164587a602;0;1;12;FLOAT;1;False;2;FLOAT;26;FLOAT;0
 Node;AmplifyShaderEditor.TriplanarNode;8;-649.8242,100.1432;Float;True;Spherical;Object;True;Normal;_Normal;white;4;Assets/_Project/Materials/Substances/Mordor/mordor_rock.sbsar;Mid Texture 3;_MidTexture3;white;-1;None;Bot Texture 3;_BotTexture3;white;-1;None;Normal;False;10;0;SAMPLER2D;;False;5;FLOAT;1;False;1;SAMPLER2D;;False;6;FLOAT;0;False;2;SAMPLER2D;;False;7;FLOAT;0;False;9;FLOAT3;0,0,0;False;8;FLOAT;1;False;3;FLOAT2;1,1;False;4;FLOAT;1;False;5;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.StandardSurfaceOutputNode;0;558.7979,139.7654;Float;False;True;6;Float;ASEMaterialInspector;0;0;Standard;Arcadia/PRBTriplanerObjecctSpace;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;Back;0;False;-1;0;False;-1;False;0;False;-1;0;False;-1;False;0;Custom;0.5;True;True;0;True;TransparentCutout;;Geometry;All;True;True;True;True;True;True;True;True;True;True;True;True;True;True;True;True;True;0;False;-1;False;0;False;-1;255;False;-1;255;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;-1;False;2;15;10;25;False;0.5;True;0;0;False;-1;0;False;-1;0;0;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;0;0,0,0,0;VertexOffset;True;False;Cylindrical;False;Relative;0;;0;-1;-1;-1;0;False;0;0;False;-1;-1;0;False;-1;0;0;0;False;0.1;False;-1;0;False;-1;16;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;2;FLOAT3;0,0,0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT3;0,0,0;False;7;FLOAT3;0,0,0;False;8;FLOAT;0;False;9;FLOAT;0;False;10;FLOAT;0;False;13;FLOAT3;0,0,0;False;11;FLOAT3;0,0,0;False;12;FLOAT3;0,0,0;False;14;FLOAT4;0,0,0,0;False;15;FLOAT3;0,0,0;False;0
+Node;AmplifyShaderEditor.StandardSurfaceOutputNode;0;558.7979,139.7654;Float;False;True;6;Float;ASEMaterialInspector;0;0;Standard;Arcadia/PRBTriplanerObjecctSpace;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;Off;0;False;-1;0;False;-1;False;0;False;-1;0;False;-1;False;0;Custom;0.5;True;True;0;True;TransparentCutout;;Geometry;All;True;True;True;True;True;True;True;True;True;True;True;True;True;True;True;True;True;0;False;-1;False;0;False;-1;255;False;-1;255;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;-1;False;2;15;10;25;False;0.5;True;0;0;False;-1;0;False;-1;0;0;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;0;0,0,0,0;VertexOffset;True;False;Cylindrical;False;Relative;0;;0;-1;-1;-1;0;False;0;0;False;-1;-1;0;False;-1;0;0;0;False;0.1;False;-1;0;False;-1;16;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;2;FLOAT3;0,0,0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT3;0,0,0;False;7;FLOAT3;0,0,0;False;8;FLOAT;0;False;9;FLOAT;0;False;10;FLOAT;0;False;13;FLOAT3;0,0,0;False;11;FLOAT3;0,0,0;False;12;FLOAT3;0,0,0;False;14;FLOAT4;0,0,0,0;False;15;FLOAT3;0,0,0;False;0
 WireConnection;7;3;11;0
 WireConnection;7;4;13;0
 WireConnection;5;3;11;0
@@ -278,4 +279,4 @@ WireConnection;0;3;16;0
 WireConnection;0;4;17;0
 WireConnection;0;10;19;0
 ASEEND*/
-//CHKSM=B2ACBF7ABA1047A29BAC3472605A944AD0728DC6
+//CHKSM=E64B0724DBB8BA14DF56B283E5F0FA3706DA62BF

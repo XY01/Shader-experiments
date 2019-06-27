@@ -9778,6 +9778,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tectonic extract
       objectReference: {fileID: 0}
+    - target: {fileID: 100026, guid: 633074fc53319424c8b8eb8c88cdc1dc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 100008, guid: 633074fc53319424c8b8eb8c88cdc1dc, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -10436,7 +10440,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1882299077
 Transform:
   m_ObjectHideFlags: 0
@@ -10472,13 +10476,27 @@ MonoBehaviour:
     _SmoothingSpeed: 0
     _Master: 1
     _DataRacketType: 0
+  - _Name: _WorldPosScaler
+    _NormalizedValue: 0.5
+    _Range: {x: 0, y: 1}
+    _Culumlative: 0
+    _SmoothingSpeed: 0
+    _Master: 0
+    _DataRacketType: 0
+  - _Name: _NoiseOffsetscaler
+    _NormalizedValue: 0.5
+    _Range: {x: 0, y: 1}
+    _Culumlative: 0
+    _SmoothingSpeed: 0
+    _Master: 0
+    _DataRacketType: 0
   - _Name: _EmissionScaler
     _NormalizedValue: 0
     _Range: {x: 0, y: 3}
     _Culumlative: 0
     _SmoothingSpeed: 0
     _Master: 0
-    _DataRacketType: 1
+    _DataRacketType: 10
   _ControlColours: []
   _SelfInit: 0
   _ControllerName: shader
@@ -16852,6 +16870,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 17322406, guid: 87d50478f3b44c04d9c4bf4e1308eaad, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 17322406, guid: 87d50478f3b44c04d9c4bf4e1308eaad, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 17322406, guid: 87d50478f3b44c04d9c4bf4e1308eaad, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5951263942196354528, guid: 87d50478f3b44c04d9c4bf4e1308eaad,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -16957,11 +16987,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8476263553806603827, guid: 87d50478f3b44c04d9c4bf4e1308eaad,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 810941702, guid: 87d50478f3b44c04d9c4bf4e1308eaad, type: 3}
       propertyPath: _HSLider
       value: 
@@ -16978,6 +17003,11 @@ PrefabInstance:
       propertyPath: _ASLider
       value: 
       objectReference: {fileID: 1600660121006723353}
+    - target: {fileID: 8476263553806603827, guid: 87d50478f3b44c04d9c4bf4e1308eaad,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6943458784838505271, guid: 87d50478f3b44c04d9c4bf4e1308eaad,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -17025,18 +17055,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5639905244146369811, guid: 87d50478f3b44c04d9c4bf4e1308eaad,
         type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 17322406, guid: 87d50478f3b44c04d9c4bf4e1308eaad, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 17322406, guid: 87d50478f3b44c04d9c4bf4e1308eaad, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 17322406, guid: 87d50478f3b44c04d9c4bf4e1308eaad, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}

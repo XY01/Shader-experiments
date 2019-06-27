@@ -61,9 +61,12 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _Cutoff: 0.5
+    - _EmissionScaler: 0
     - _Fade: 1
     - _Falloff: 4
     - _NormalScale: 1.39
     - __dirty: 0
     m_Colors:
+    - _AlbedoCol: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionCol: {r: 1, g: 0, b: 0, a: 0}
     - _Tiling: {r: 1, g: 1, b: 0, a: 0}

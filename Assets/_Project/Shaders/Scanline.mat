@@ -31,11 +31,11 @@ Material:
     - _EmissionScaler: 2.6
     - _Fade: 1
     - _Float0: 0.3
-    - _ManualSpeed: 7.6117616
-    - _NoiseScaler: 0.35142994
-    - _Width1: 0.4628941
-    - _Width2: 0.022077989
-    - __dirty: 0
+    - _ManualSpeed: 1.8520086
+    - _NoiseScaler: 0
+    - _Width1: 0.39999977
+    - _Width2: 0.009999993
+    - __dirty: 1
     m_Colors:
     - _Color0: {r: 1, g: 1, b: 1, a: 1}
     - _Tiling: {r: 0.3, g: 0.3, b: 0, a: 0}

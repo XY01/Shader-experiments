@@ -62,7 +62,7 @@ Material:
     m_Floats:
     - _Cutoff: 0.5
     - _EmissionScaler: 0
-    - _Fade: 0.13213712
+    - _Fade: 0.04808259
     - _Falloff: 6
     - _NormalScale: 1.39
     - __dirty: 0

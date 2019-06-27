@@ -47,12 +47,12 @@ Material:
     - _Cutoff: 0.5
     - _EMissivescaler: 400
     - _EdgeLength: 15
-    - _Fade: 0.21435004
+    - _Fade: 0.10451305
     - _FadeNoiseSize: 1
     - _Float7: -0.13
-    - _TexValOffset: 0.09200001
+    - _TexValOffset: 0.30499962
     - _Tiling: 0.08400001
-    - _WorldPosOffset: 0.18400002
+    - _WorldPosOffset: 0.60999924
     - __dirty: 0
     m_Colors:
     - _MainCol: {r: 0.8018868, g: 0.8018868, b: 0.8018868, a: 0}

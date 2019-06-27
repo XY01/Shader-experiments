@@ -49,12 +49,12 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _Cutoff: 0.5
-    - _EmissionScaler: 0.869897
+    - _EmissionScaler: 0.51325214
     - _Fade: 1
-    - _NoiseOffsetscaler: 0.0003071656
+    - _NoiseOffsetscaler: 0.30519533
     - _VertOffset: 0
     - _VertOffsetNoiseScaler: 0.05
-    - _WorldPosScaler: 0.81539917
+    - _WorldPosScaler: 0.70408165
     - __dirty: 0
     m_Colors:
     - _EmitCol: {r: 0.3679245, g: 0.3679245, b: 0.3679245, a: 0}

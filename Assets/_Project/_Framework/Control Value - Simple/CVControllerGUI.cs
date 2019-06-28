@@ -11,8 +11,9 @@ public class CVControllerGUI : MonoBehaviour
     public Text _HeadingText;
     CVControllerBase _Controller;
     GameObject[] _SliderParents;
-    CVSlider[] _CVSliders;
+    public CVSlider[] _CVSliders;
     Button[] _CVColButtons;
+  
 
     int _SelectedColControllerIndex;
 

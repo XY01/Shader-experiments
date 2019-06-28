@@ -2,6 +2,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public class CVData
+{
+    public string _Name = "/Test/Value";
+    public float _NormalizedValue = 0;
+    public Vector2 _Range = new Vector2(0, 1);   
+    public bool _Culumlative = false;
+    public float _SmoothingSpeed = 0;
+
+    public CVData(ControlValue cv)
+    {
+        _Name = cv._Name;
+        _NormalizedValue = cv._NormalizedValue;
+        _Range = cv._Range;
+        _Culumlative = cv._Culumlative;
+        _SmoothingSpeed = cv._SmoothingSpeed;
+    }
+
+    public CVData(string name, float norm, Vector2 range, bool cumulative, float smoothing)
+    {
+        _Name = name;
+        _NormalizedValue = norm;
+        _Range = range;
+        _Culumlative = cumulative;
+        _SmoothingSpeed = smoothing;
+    }
+}
+
+
 [System.Serializable]
 public class ControlValue
 {
@@ -19,6 +47,8 @@ public class ControlValue
     public bool _Master = false;
     public ControlValue _LinkedControlValue;
 
+    CVData _ResetData;
+
     OSCListener _OSCListener;
 
     // Hax
@@ -31,12 +61,15 @@ public class ControlValue
         _Range.x = minRange;
         _Range.y = maxRange;
         Init(oscAddressPrefix);
+
+        
     }
 
     public void Init(string oscAddress)
     {
         // Init osc listener
         _OSCListener = new OSCListener(oscAddress+_Name);
+        _ResetData = new CVData(this);
     }
 
     public void UpdateValue(float delta)
@@ -77,5 +110,19 @@ public class ControlValue
         {
             _LinkedControlValue._NormalizedValue = _NormalizedValue;
         }
+    }
+
+    public void Reset()
+    {
+        SetFromData(_ResetData);
+    }
+
+    void SetFromData(CVData data)
+    {
+        _Name = data._Name;
+        _NormalizedValue = data._NormalizedValue;
+        _Range = data._Range;
+        _Culumlative = data._Culumlative;
+        _SmoothingSpeed = data._SmoothingSpeed;
     }
 }

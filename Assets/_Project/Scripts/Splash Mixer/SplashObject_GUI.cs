@@ -11,7 +11,9 @@ public class SplashObject_GUI : MonoBehaviour
 
     public CVSlider _FadeSlider;
     public RectTransform _CVControllersParent;
-    
+    public Button _BtnReset;
+
+    List<CVControllerGUI> controlGUIs = new List<CVControllerGUI>();
 
     // Start is called before the first frame update
     public void Initialize(SplashObjectBase splashObj)
@@ -24,11 +26,27 @@ public class SplashObject_GUI : MonoBehaviour
         // Set up fade slider
         _FadeSlider.Init(_SplashObject._FadeCV);
 
+        _BtnReset.onClick.AddListener(() => Reset());
+
+        controlGUIs = new List<CVControllerGUI>();
+
         // Create GUI for each of the splash object CV controllers
         for (int i = 0; i < _SplashObject.CVControllers.Length; i++)
         {
             CVControllerGUI newCtrlrGUI = SRResources.Panel_CV_Controllers.Instantiate(_CVControllersParent).GetComponent<CVControllerGUI>();
             newCtrlrGUI.Initialize(_SplashObject.CVControllers[i]);
+            controlGUIs.Add(newCtrlrGUI);
+        }
+    }
+
+    void Reset()
+    {
+        foreach(CVControllerGUI gui in controlGUIs)
+        {
+            foreach(CVSlider slider in gui._CVSliders)
+            {
+                slider._CV.Reset();
+            }
         }
     }
 }

@@ -15,10 +15,17 @@ using UnityEditor; // Needed to use delayCall
 
 namespace Klak.Ndi
 {
-    [ExecuteInEditMode]
     [AddComponentMenu("Klak/NDI/NDI Sender")]
     public sealed class NdiSender : MonoBehaviour
     {
+        public enum Source
+        {
+            Camera,
+            RenderTexture,
+        }
+
+        public Source _Source = Source.Camera;
+
         #region Source texture
 
         [SerializeField] RenderTexture _sourceTexture;
@@ -66,14 +73,19 @@ namespace Klak.Ndi
 
             if (_frameQueue.Count > 3)
             {
-                Debug.LogWarning("Too many GPU readback requests.");
+                //Debug.LogWarning(name +   "   Too many GPU readback requests.");
                 return;
             }
 
             // On Editor, this may be called multiple times in a single frame.
             // To avoid wasting memory (actually this can cause an out-of-memory
             // exception), check the frame count and reject duplicated requests.
-            if (_lastFrameCount == Time.frameCount) return;
+            if (_lastFrameCount == Time.frameCount)
+            {
+                Debug.LogWarning(name + "   Too many calls in one frame.");
+                return;
+            }
+
             _lastFrameCount = Time.frameCount;
 
             // Return the old render texture to the pool.
@@ -84,7 +96,7 @@ namespace Klak.Ndi
                 source.width / 2, (_alphaSupport ? 3 : 2) * source.height / 2, 0,
                 RenderTextureFormat.ARGB32, RenderTextureReadWrite.Linear
             );
-
+            
             // Lazy initialization of the conversion shader.
             if (_material == null)
             {
@@ -114,7 +126,7 @@ namespace Klak.Ndi
                 // Skip error frames.
                 if (frame.readback.hasError)
                 {
-                    Debug.LogWarning("GPU readback error was detected.");
+                    //Debug.LogWarning("GPU readback error was detected.");
                     _frameQueue.Dequeue();
                     continue;
                 }
@@ -164,7 +176,8 @@ namespace Klak.Ndi
             _delayUpdateAdded = false;
 
             // Queue the last update in the render texture mode.
-            if (!_hasCamera && _sourceTexture != null) QueueFrame(_sourceTexture);
+            if (_Source == Source.RenderTexture)
+                QueueFrame(_sourceTexture);
 
             // Process the readback queue to send the last update.
             ProcessQueue();
@@ -244,7 +257,7 @@ namespace Klak.Ndi
             if (!Application.isPlaying) _hasCamera = (GetComponent<Camera>() != null);
 
             // Check if in the render texture mode.
-            if (!_hasCamera && _sourceTexture != null)
+            if (_Source == Source.RenderTexture)
             {
                 // Process the readback queue before enqueuing.
                 ProcessQueue();
@@ -253,7 +266,7 @@ namespace Klak.Ndi
                 QueueFrame(_sourceTexture);
             }
         }
-
+        
         void OnRenderImage(RenderTexture source, RenderTexture destination)
         {
             if (source != null)

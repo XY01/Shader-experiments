@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33714207ad0202c419142573e6e74a38, type: 3}
+  m_Name: todo
+  m_EditorClassIdentifier: 
+  Entries:
+  - Text: ": if mousebutton down\r"
+    Note: 
+    Tag: TODO
+    File: C:\Development\Source Control\EXP-OSCControl\Assets\RadialSliderUI\Scripts\RadialSlider_GUI.cs
+    Line: 59
+    PathToShow: Assets/RadialSliderUI/Scripts/RadialSlider_GUI.cs(59)
+  - Text: " delete after test. Start test client\r"
+    Note: 
+    Tag: TODO
+    File: C:\Development\Source Control\EXP-OSCControl\Assets\_Project\OSC designer\Scripts\DebugTests.cs
+    Line: 14
+    PathToShow: Assets/_Project/OSC designer/Scripts/DebugTests.cs(14)
+  - Text: " Use to offset drag position \r"
+    Note: 
+    Tag: TODO
+    File: C:\Development\Source Control\EXP-OSCControl\Assets\_Project\OSC designer\Scripts\DraggableRect.cs
+    Line: 70
+    PathToShow: Assets/_Project/OSC designer/Scripts/DraggableRect.cs(70)
+  - Text: ": Needs to move thumb when mouse down\r"
+    Note: 
+    Tag: TODO
+    File: C:\Development\Source Control\EXP-OSCControl\Assets\_Project\OSC designer\Scripts\RectTransformEditor.cs
+    Line: 5
+    PathToShow: Assets/_Project/OSC designer/Scripts/RectTransformEditor.cs(5)
+  - Text: ": Moving the Scale To variable from OSCListener to OSCController\r"
+    Note: 
+    Tag: TODO
+    File: C:\Development\Source Control\EXP-OSCControl\Assets\_Project\OSC designer\Scripts\OSC
+      Controllers\OSCController.cs
+    Line: 15
+    PathToShow: Assets/_Project/OSC designer/Scripts/OSC Controllers/OSCController.cs(15)
+  - Text: " haptic feedback - defualt vibrate currently too long\r"
+    Note: 
+    Tag: TODO
+    File: C:\Development\Source Control\EXP-OSCControl\Assets\_Project\OSC designer\Scripts\OSC
+      Controllers\OSCController.cs
+    Line: 55
+    PathToShow: Assets/_Project/OSC designer/Scripts/OSC Controllers/OSCController.cs(55)
+  - Text: " Doesn't parse Vector 2s properly\r"
+    Note: 
+    Tag: TODO
+    File: C:\Development\Source Control\EXP-OSCControl\Assets\_Project\OSC designer\Scripts\OSC
+      Controllers\OSCController.cs
+    Line: 65
+    PathToShow: Assets/_Project/OSC designer/Scripts/OSC Controllers/OSCController.cs(65)
+  - Text: ": make this a function of drag rect to constrain to parent\r"
+    Note: 
+    Tag: TODO
+    File: C:\Development\Source Control\EXP-OSCControl\Assets\_Project\OSC designer\Scripts\OSC
+      Controllers\OSCController_XYPad.cs
+    Line: 29
+    PathToShow: Assets/_Project/OSC designer/Scripts/OSC Controllers/OSCController_XYPad.cs(29)
+  TagsList:
+  - TODO
+  - BUG
